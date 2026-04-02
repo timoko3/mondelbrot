@@ -277,3 +277,85 @@ Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
 Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF67011AE0B в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 45. Попытка записать данные по адресу 0x000002010C1751A6 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF670140830 (64-bit), Flags: CMdRe0, Thread: 0x8FDC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF67011AE0B in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:45:
+
+     43: 
+     44:             if(curIter == AMOUNT_ITERATIONS){
+=>   45:                 videoMemBuffer[curX + (-curY + HEIGHT_WINDOW) * WIDTH_WINDOW].rgbRed   = 255; // РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РєСЂР°СЃРЅС‹Р№
+     46:                 videoMemBuffer[curX + (-curY + HEIGHT_WINDOW) * WIDTH_WINDOW].rgbGreen = 0;
+     47:                 videoMemBuffer[curX + (-curY + HEIGHT_WINDOW) * WIDTH_WINDOW].rgbBlue  = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  3 2026 01:59:33, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  3 2026 01:59:41
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF67011AE0B в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 45. Попытка записать данные по адресу 0x000002010C1751A6 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF670140830 (64-bit), Flags: CMdRe0, Thread: 0x8FDC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF67011AE0B in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:45:
+
+     43: 
+     44:             if(curIter == AMOUNT_ITERATIONS){
+=>   45:                 videoMemBuffer[curX + (-curY + HEIGHT_WINDOW) * WIDTH_WINDOW].rgbRed   = 255; // РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РєСЂР°СЃРЅС‹Р№
+     46:                 videoMemBuffer[curX + (-curY + HEIGHT_WINDOW) * WIDTH_WINDOW].rgbGreen = 0;
+     47:                 videoMemBuffer[curX + (-curY + HEIGHT_WINDOW) * WIDTH_WINDOW].rgbBlue  = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  3 2026 01:59:33, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  3 2026 01:59:41
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
