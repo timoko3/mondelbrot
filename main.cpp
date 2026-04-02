@@ -9,16 +9,29 @@ const size_t HEIGHT_WINDOW = 600;
 int main(void){
     txCreateWindow (WIDTH_WINDOW, HEIGHT_WINDOW);
 
-    double powX = 0;
-    double powY = 0;
+    double powTwoX              = 0;
+    double powTwoY              = 0;
+    double curComplexRe         = 0;
+    double curComplexIm         = 0;
+    double nextComplexRe        = 0;
+    double nextComplexIm        = 0;
+
     for(int curX = 0; curX < (int) WIDTH_WINDOW; curX++){
         for(int curY = 0; curY < (int) HEIGHT_WINDOW; curY++){
-            powX = fabs(pow(curX - 400, 2.0));
-            powY= fabs(pow(curY - 300, 2.0));
-            // fprintf(stderr, "powX: %lf, powY: %lf\n", powX, powY);
-            if(powX + powY < 100*100){
+            powTwoX = curX * curX;
+            powTwoX = curY * curY;
+            
+            nextComplexRe = (curComplexRe * curComplexRe - curComplexIm * curComplexIm + curX);
+            nextComplexIm = 2 * curComplexRe *curComplexIm + curY;
+
+            curComplexRe = nextComplexRe;
+            curComplexIm - nextComplexIm;
+
+            if(curComplexRe * curComplexRe - curComplexIm * curComplexIm < 4){
                 txSetPixel(curX, curY, TX_LIGHTRED);
             }
+
+
         }
     }
 
