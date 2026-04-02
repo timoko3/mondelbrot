@@ -1,6 +1,6 @@
 @echo off
 
-g++ main.cpp -I "C:\Users\Lenovo\Downloads\TX"  -o mandelbrot.cpp ^
+g++ main.cpp -I "C:\Users\Lenovo\Downloads\TX"  -o mandelbrot.exe ^
 -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef ^
 -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations ^
 -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ ^
@@ -12,4 +12,4 @@ g++ main.cpp -I "C:\Users\Lenovo\Downloads\TX"  -o mandelbrot.cpp ^
 -Wtype-limits -Wwrite-strings -Werror=vla ^
 -D_DEBUG -D_EJUDGE_CLIENT_SIDE
 
-mandelbrot.cpp %*
+mandelbrot.exe %*
