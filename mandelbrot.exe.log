@@ -91,3 +91,189 @@ Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
 Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF6CC2A079F в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 30 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6CC2CA830 (64-bit), Flags: CMdRe0, Thread: 0x35B0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6CC2A079F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:30:
+
+     28:             curComplexIm - nextComplexIm;
+     29: 
+=>   30:             if(curComplexRe * curComplexRe - curComplexIm * curComplexIm < 4){
+     31:                 txSetPixel(curX, curY, TX_LIGHTRED);
+     32:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at main.cpp:31:
+
+     29: 
+     30:             if(curComplexRe * curComplexRe - curComplexIm * curComplexIm < 4){
+=>   31:                 txSetPixel(curX, curY, TX_LIGHTRED);
+     32:             }
+     33: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  2 2026 17:28:07, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, DEBUG
+Started:	Apr  2 2026 17:28:16
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF6CC2A079F в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 30 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6CC2CA830 (64-bit), Flags: CMdRe0, Thread: 0x35B0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6CC2A079F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:30:
+
+     28:             curComplexIm - nextComplexIm;
+     29: 
+=>   30:             if(curComplexRe * curComplexRe - curComplexIm * curComplexIm < 4){
+     31:                 txSetPixel(curX, curY, TX_LIGHTRED);
+     32:             }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  2 2026 17:28:07, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, DEBUG
+Started:	Apr  2 2026 17:28:16
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF70761079F в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 30 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF70763A830 (64-bit), Flags: CMdRe0, Thread: 0x6964 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF70761079F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:30:
+
+     28:             curComplexIm - nextComplexIm;
+     29: 
+=>   30:             if(curComplexRe * curComplexRe - curComplexIm * curComplexIm < 4){
+     31:                 txSetPixel(curX, curY, TX_LIGHTRED);
+     32:             }
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at main.cpp:31:
+
+     29: 
+     30:             if(curComplexRe * curComplexRe - curComplexIm * curComplexIm < 4){
+=>   31:                 txSetPixel(curX, curY, TX_LIGHTRED);
+     32:             }
+     33: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  2 2026 17:28:48, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, DEBUG
+Started:	Apr  2 2026 17:28:56
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF70761079F в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 30 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF70763A830 (64-bit), Flags: CMdRe0, Thread: 0x6964 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF70761079F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:30:
+
+     28:             curComplexIm - nextComplexIm;
+     29: 
+=>   30:             if(curComplexRe * curComplexRe - curComplexIm * curComplexIm < 4){
+     31:                 txSetPixel(curX, curY, TX_LIGHTRED);
+     32:             }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  2 2026 17:28:48, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, DEBUG
+Started:	Apr  2 2026 17:28:56
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
