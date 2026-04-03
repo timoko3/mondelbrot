@@ -22,6 +22,7 @@ int main(void){
     RGBQUAD curColor;
 
     double time = 0;
+    double fps  = 0;
     while(true){
         txLock();
         for(int curX = 0; curX < (int) WIDTH_WINDOW; curX++){
@@ -29,7 +30,7 @@ int main(void){
                 double curComplexRe         = 0;
                 double curComplexIm         = 0;
 
-                double curShiftRe           = (curX - 600) / (450.0 + time); 
+                double curShiftRe           = (curX - 1000) / (450.0 + time); 
                 double curShiftIm           = (curY - 300) / (450.0 + time); 
 
                 int curIter = 0;
@@ -43,17 +44,24 @@ int main(void){
                     curIter++;
                 }
                 
-
-                videoMemBuffer[curX + (-curY + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbRed   = curIter % 256;
-                videoMemBuffer[curX + (-curY + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbGreen = curIter % 256;
-                videoMemBuffer[curX + (-curY + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbBlue  = curIter % 256;
-
+                
+                videoMemBuffer[curX + (-curY + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbRed   = curIter % 113;
+                videoMemBuffer[curX + (-curY + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbGreen = curIter % 128;
+                videoMemBuffer[curX + (-curY + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbBlue  = curIter % 10;
+                
             }
         }
         txUnlock();
-        txRedrawWindow();
+        // txRedrawWindow();
+        
+        fps = txGetFPS();
 
-        time += 1;
+        char printStr[15];
+        sprintf(printStr, "fps: %.2f", fps);
+        txSetColor (TX_YELLOW); 
+        txTextOut(0, 0, printStr);
+        txRedrawWindow();
+        // time += 1;
     }
 
     return 0;
