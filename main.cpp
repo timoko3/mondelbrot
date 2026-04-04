@@ -9,6 +9,8 @@ const size_t HEIGHT_WINDOW = 600;
 
 const size_t AMOUNT_ITERATIONS = 256;
 
+void countMondelbrot(float* curComplexRe1, float* curComplexIm1, double* curComplexRe2, double* curComplexIm2, float curShiftRe, float curShiftIm);
+
 int main(void){
     txCreateWindow (WIDTH_WINDOW, HEIGHT_WINDOW);
 
@@ -20,24 +22,26 @@ int main(void){
         txLock();
         for(int curX = 0; curX < (int) WIDTH_WINDOW; curX++){
             for(int curY = 0; curY < (int) HEIGHT_WINDOW; curY++){
-                float curComplexRe         = 0;
-                float curComplexIm         = 0;
+                float curComplexRe1        = 0;
+                float curComplexIm1        = 0;
 
-                double curComplexRe2       = 0;     // overflow if float        
-                double curComplexIm2       = 0;     // overflow if float
-                float curComplexImRe       = 0;
+                double curComplexRe2        = 0;     // overflow if float        
+                double curComplexIm2        = 0;     // overflow if float
+                float  curComplexImRe       = 0;
 
                 float curShiftRe           = (curX - 1000 - time) / (450.0); 
                 float curShiftIm           = (curY - 300) / (450.0); 
 
                 int curIter = 0;
                 while(curComplexRe2 + curComplexIm2 < 4 && curIter < AMOUNT_ITERATIONS){
-                    curComplexRe2        = curComplexRe * curComplexRe;
-                    curComplexIm2        = curComplexIm * curComplexIm;
-                    curComplexImRe       = curComplexIm * curComplexRe;
+                    // countMondelbrot(&curComplexRe1, &curComplexIm1, &curComplexRe2, &curComplexIm2, curShiftRe, curShiftIm);
 
-                    curComplexRe = (curComplexRe2 - curComplexIm2 + curShiftRe);
-                    curComplexIm = 2 * curComplexImRe + curShiftIm;
+                    curComplexRe2        = curComplexRe1 * curComplexRe1;
+                    curComplexIm2        = curComplexIm1 * curComplexIm1;
+                    curComplexImRe       = curComplexIm1 * curComplexRe1;
+
+                    curComplexRe1 = (curComplexRe2 - curComplexIm2 + curShiftRe);
+                    curComplexIm1 = 2 * curComplexImRe + curShiftIm;
 
                     curIter++;
                 }
@@ -65,4 +69,12 @@ int main(void){
 }
 
 
-void
+// void countMondelbrot(float* curComplexRe1, float* curComplexIm1, double* curComplexRe2, double* curComplexIm2,
+//                      float curShiftRe, float curShiftIm){
+//     *curComplexRe2        = (*curComplexRe1) * (*curComplexRe1);
+//     *curComplexIm2        = (*curComplexIm1) * (*curComplexIm1);
+//     double  curComplexImRe       = (*curComplexIm1) * (*curComplexRe1);
+
+//     *curComplexRe1 = (*curComplexRe2 - *curComplexIm2 + curShiftRe);
+//     *curComplexIm1 = 2 * curComplexImRe + curShiftIm;
+// }
