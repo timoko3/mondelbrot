@@ -12,35 +12,33 @@ const size_t AMOUNT_ITERATIONS = 256;
 int main(void){
     txCreateWindow (WIDTH_WINDOW, HEIGHT_WINDOW);
 
-    double curComplexRe         = 0;
-    double curComplexIm         = 0;
-    double nextComplexRe        = 0;
-    double nextComplexIm        = 0;
-
     RGBQUAD* videoMemBuffer = txVideoMemory();
 
-    RGBQUAD curColor;
-
-    double time = 0;
-    double fps  = 0;
+    float time = 0;
+    float fps  = 0;
     while(true){
         txLock();
         for(int curX = 0; curX < (int) WIDTH_WINDOW; curX++){
             for(int curY = 0; curY < (int) HEIGHT_WINDOW; curY++){
-                double curComplexRe         = 0;
-                double curComplexIm         = 0;
+                float curComplexRe         = 0;
+                float curComplexIm         = 0;
 
-                double curShiftRe           = (curX - 1000) / (450.0 + time); 
-                double curShiftIm           = (curY - 300) / (450.0 + time); 
+                double curComplexRe2       = 0;     // overflow if float        
+                double curComplexIm2       = 0;     // overflow if float
+                float curComplexImRe       = 0;
+
+                float curShiftRe           = (curX - 1000 - time) / (450.0); 
+                float curShiftIm           = (curY - 300) / (450.0); 
 
                 int curIter = 0;
-                while(curComplexRe * curComplexRe + curComplexIm * curComplexIm < 4 && curIter < AMOUNT_ITERATIONS){
-                    nextComplexRe = (curComplexRe * curComplexRe - curComplexIm * curComplexIm + curShiftRe);
-                    nextComplexIm = 2 * curComplexRe * curComplexIm + curShiftIm;
+                while(curComplexRe2 + curComplexIm2 < 4 && curIter < AMOUNT_ITERATIONS){
+                    curComplexRe2        = curComplexRe * curComplexRe;
+                    curComplexIm2        = curComplexIm * curComplexIm;
+                    curComplexImRe       = curComplexIm * curComplexRe;
 
-                    curComplexRe = nextComplexRe;
-                    curComplexIm = nextComplexIm;
-                    
+                    curComplexRe = (curComplexRe2 - curComplexIm2 + curShiftRe);
+                    curComplexIm = 2 * curComplexImRe + curShiftIm;
+
                     curIter++;
                 }
                 
@@ -52,7 +50,6 @@ int main(void){
             }
         }
         txUnlock();
-        // txRedrawWindow();
         
         fps = txGetFPS();
 
@@ -66,3 +63,6 @@ int main(void){
 
     return 0;
 }
+
+
+void
