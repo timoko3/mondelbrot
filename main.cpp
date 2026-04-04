@@ -9,7 +9,7 @@ const size_t HEIGHT_WINDOW = 600;
 
 const size_t AMOUNT_ITERATIONS = 256;
 
-void countMondelbrot(float* curComplexRe1, float* curComplexIm1, double* curComplexRe2, double* curComplexIm2, float curShiftRe, float curShiftIm);
+inline void countMondelbrot(float* curComplexRe1, float* curComplexIm1, float* curComplexRe2, float* curComplexIm2, float curShiftRe, float curShiftIm);
 
 int main(void){
     txCreateWindow (WIDTH_WINDOW, HEIGHT_WINDOW);
@@ -25,23 +25,15 @@ int main(void){
                 float curComplexRe1        = 0;
                 float curComplexIm1        = 0;
 
-                double curComplexRe2        = 0;     // overflow if float        
-                double curComplexIm2        = 0;     // overflow if float
-                float  curComplexImRe       = 0;
+                float  curComplexRe2        = 0;         
+                float  curComplexIm2        = 0; 
 
                 float curShiftRe           = (curX - 1000 - time) / (450.0); 
                 float curShiftIm           = (curY - 300) / (450.0); 
 
                 int curIter = 0;
                 while(curComplexRe2 + curComplexIm2 < 4 && curIter < AMOUNT_ITERATIONS){
-                    // countMondelbrot(&curComplexRe1, &curComplexIm1, &curComplexRe2, &curComplexIm2, curShiftRe, curShiftIm);
-
-                    curComplexRe2        = curComplexRe1 * curComplexRe1;
-                    curComplexIm2        = curComplexIm1 * curComplexIm1;
-                    curComplexImRe       = curComplexIm1 * curComplexRe1;
-
-                    curComplexRe1 = (curComplexRe2 - curComplexIm2 + curShiftRe);
-                    curComplexIm1 = 2 * curComplexImRe + curShiftIm;
+                    countMondelbrot(&curComplexRe1, &curComplexIm1, &curComplexRe2, &curComplexIm2, curShiftRe, curShiftIm);
 
                     curIter++;
                 }
@@ -69,12 +61,12 @@ int main(void){
 }
 
 
-// void countMondelbrot(float* curComplexRe1, float* curComplexIm1, double* curComplexRe2, double* curComplexIm2,
-//                      float curShiftRe, float curShiftIm){
-//     *curComplexRe2        = (*curComplexRe1) * (*curComplexRe1);
-//     *curComplexIm2        = (*curComplexIm1) * (*curComplexIm1);
-//     double  curComplexImRe       = (*curComplexIm1) * (*curComplexRe1);
+inline void countMondelbrot(float* curComplexRe1, float* curComplexIm1, float* curComplexRe2, float* curComplexIm2,
+                     float curShiftRe, float curShiftIm){
+    *curComplexRe2         = (*curComplexRe1) * (*curComplexRe1);
+    *curComplexIm2         = (*curComplexIm1) * (*curComplexIm1);
+    float  curComplexImRe = (*curComplexIm1) * (*curComplexRe1);
 
-//     *curComplexRe1 = (*curComplexRe2 - *curComplexIm2 + curShiftRe);
-//     *curComplexIm1 = 2 * curComplexImRe + curShiftIm;
-// }
+    *curComplexRe1 = (*curComplexRe2 - *curComplexIm2 + curShiftRe);
+    *curComplexIm1 = 2 * curComplexImRe + curShiftIm;
+}
