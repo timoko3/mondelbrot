@@ -1,4 +1,9 @@
+#ifndef DEBUG_H
+#define DEBUG_H
+
 #include <stdio.h>
+
+extern const char* LOG_FILE_NAME;
 
 void lprintf(const char* text, ...);
 
@@ -9,4 +14,6 @@ void lprintf(const char* text, ...);
     #define LPRINTF(text, ...) ((void)0)
 #endif
 
-// #define $ LPRINTF("MEOW");
+#define $ LPRINTF("MEOW");
+
+#endif /* DEBUG_H */
