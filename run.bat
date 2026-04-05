@@ -1,6 +1,6 @@
 @echo off
 
-g++ main.cpp general\*.cpp -I "C:\Users\Lenovo\Downloads\TX" -O3 -mavx512f -o mandelbrot.exe ^
+g++ main.cpp -S -O3 -mavx512f -o mandelbrot.exe ^
 -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef ^
 -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations ^
 -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ ^

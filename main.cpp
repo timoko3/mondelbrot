@@ -1,4 +1,3 @@
-#include "TXLib.h"
 
 #define DEBUG
 #include "general/debug.h"
@@ -7,6 +6,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <cstdint>
 
 #include <immintrin.h>
 #include <windows.h>
@@ -44,7 +44,7 @@ int main(void){
     int64_t startTicks = GetTicks();
 
     while(time < 100000){
-        txLock();
+        // txLock();
         for(int counterY = 0; counterY < (int) HEIGHT_WINDOW; counterY++){
             curYPosScaled = (counterY - 300.0f)  / SCALE_NUM;
             for(int counterX = 0; counterX < (int) WIDTH_WINDOW; counterX += UNWRAP_NUMBER){
@@ -132,7 +132,7 @@ int main(void){
 
     int64_t frequency = GetFrequency();
 
-    lprintf("result = %lf", (double) (endTicks - startTicks) / (double) frequency);
+    // lprintf("result = %lf", (double) (endTicks - startTicks) / (double) frequency);
 
     return 0;
 }
