@@ -25,6 +25,11 @@ const size_t AMOUNT_ITERATIONS    = 256;
 const size_t UNWRAP_NUMBER        = 16;
 
 void inline countMandelbrot();
+inline void countDotsVectorMb(__m512* curComplexRe, __m512* curComplexIm, 
+                              __m512 curShiftRe, __m512 curShiftIm,
+                              __m512i* exitIndexes);
+
+inline void showFps(float fps);
 
 static inline int64_t GetTicks();
 static inline int64_t GetFrequency();
@@ -47,11 +52,7 @@ int main(void){
         countMandelbrot();
 
         // fps = txGetFPS();
-
-        // char printStr[15];
-        // sprintf(printStr, "fps: %.2f", fps);
-        // txSetColor (TX_YELLOW); 
-        // txTextOut(0, 0, printStr);
+        showFps(fps);
         // txRedrawWindow();
         time += 1;
     }
@@ -86,50 +87,8 @@ void inline countMandelbrot(){
 
             __m512i exitIndexes = _mm512_set1_epi32(0);
 
-            int curIter = 0;
             if(WIDTH_WINDOW - counterX > UNWRAP_NUMBER){
-                while(curIter < AMOUNT_ITERATIONS){
-                    // if(curIter == 0) debugPrintV512(curComplexRe,     "curComplexRe");
-                    // if(curIter == 0) debugPrintV512(curComplexIm,     "curComplexIm");
-                    
-                    __m512 curComplexReSquare = _mm512_mul_ps(curComplexRe, curComplexRe);
-                    __m512 curComplexImSquare = _mm512_mul_ps(curComplexIm, curComplexIm);
-                    __m512 curComplexImRe     = _mm512_mul_ps(curComplexRe, curComplexIm);
-
-                    __m512 curComplexSquare   = _mm512_add_ps(curComplexReSquare, curComplexImSquare);
-
-                    // if(curIter == 0) debugPrintV512(curComplexReSquare, "curComplexReSquare");
-                    // if(curIter == 0) debugPrintV512(curComplexImSquare, "curComplexImSquare");
-                    // if(curIter == 0) debugPrintV512(curComplexImRe,     "curComplexImRe");
-                    // if(curIter == 0) debugPrintV512(curComplexSquare,   "curComplexSquare");
-
-                    __m512 unwNumber        =  _mm512_set1_ps(MAX_COMPLEX_NUM_SIZE);
-                    __mmask16 mask          = _mm512_mask_cmp_ps_mask(0xFFFF, curComplexSquare, unwNumber, _CMP_LT_OS);
-
-                    __m512i ones = _mm512_set1_epi32(1);
-                    exitIndexes = _mm512_add_epi32(exitIndexes, _mm512_maskz_mov_epi32(mask, ones));
-                    
-                    if (_kortestz_mask16_u8(mask, mask)) break;
-
-                    // if(curIter == 0) debugPrintMask16(mask, "Mask");
-
-                    __m512 newRe = _mm512_sub_ps(curComplexReSquare, curComplexImSquare);
-                    newRe = _mm512_add_ps(newRe, curShiftRe);
-
-                    __m512 newIm = _mm512_add_ps(curComplexImRe, curComplexImRe);
-                    newIm = _mm512_add_ps(newIm, curShiftIm);
-
-                    curComplexRe = _mm512_mask_mov_ps(curComplexRe, mask, newRe);
-                    curComplexIm = _mm512_mask_mov_ps(curComplexIm, mask, newIm);
-
-                    // if(curIter == 0) debugPrintV512(curComplexRe,     "curComplexRe");
-                    // if(curIter == 0) debugPrintV512(curComplexIm,     "curComplexIm");
-                    
-                    // if(curIter == 0) lprintf("---------------------------------------------\n");
-                    curIter++;
-
-                    asm volatile("" :: "v"(exitIndexes));   // to fool compiler and not allow him remove calculations
-                }
+                countDotsVectorMb(&curComplexRe, &curComplexIm, curShiftRe, curComplexIm, &exitIndexes);
                 
                 // __m512i v_red   = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(5)),  _mm512_set1_epi32(255));
                 // __m512i v_green = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(9)),  _mm512_set1_epi32(255));
@@ -146,10 +105,65 @@ void inline countMandelbrot(){
     // txUnlock();
 }
 
-// inline void countDotsVectorMb(){
+inline void countDotsVectorMb(__m512*  curComplexRe, __m512* curComplexIm, 
+                              __m512   curShiftRe,   __m512 curShiftIm,
+                              __m512i* exitIndexes){
+    assert(curComplexRe);
+    assert(curComplexIm);
+    assert(exitIndexes);
 
+    int curIter = 0;
+    while(curIter < AMOUNT_ITERATIONS){
+        // if(curIter == 0) debugPrintV512(curComplexRe,     "curComplexRe");
+        // if(curIter == 0) debugPrintV512(curComplexIm,     "curComplexIm");
+        
+        __m512 curComplexReSquare = _mm512_mul_ps(*curComplexRe, *curComplexRe);
+        __m512 curComplexImSquare = _mm512_mul_ps(*curComplexIm, *curComplexIm);
+        __m512 curComplexImRe     = _mm512_mul_ps(*curComplexRe, *curComplexIm);
+
+        __m512 curComplexSquare   = _mm512_add_ps(curComplexReSquare, curComplexImSquare);
+
+        // if(curIter == 0) debugPrintV512(curComplexReSquare, "curComplexReSquare");
+        // if(curIter == 0) debugPrintV512(curComplexImSquare, "curComplexImSquare");
+        // if(curIter == 0) debugPrintV512(curComplexImRe,     "curComplexImRe");
+        // if(curIter == 0) debugPrintV512(curComplexSquare,   "curComplexSquare");
+
+        __m512 unwNumber        =  _mm512_set1_ps(MAX_COMPLEX_NUM_SIZE);
+        __mmask16 mask          = _mm512_mask_cmp_ps_mask(0xFFFF, curComplexSquare, unwNumber, _CMP_LT_OS);
+
+        __m512i ones = _mm512_set1_epi32(1);
+        *exitIndexes = _mm512_add_epi32(*exitIndexes, _mm512_maskz_mov_epi32(mask, ones));
+        
+        if (_kortestz_mask16_u8(mask, mask)) break;
+
+        // if(curIter == 0) debugPrintMask16(mask, "Mask");
+
+        __m512 newRe = _mm512_sub_ps(curComplexReSquare, curComplexImSquare);
+        newRe = _mm512_add_ps(newRe, curShiftRe);
+
+        __m512 newIm = _mm512_add_ps(curComplexImRe, curComplexImRe);
+        newIm = _mm512_add_ps(newIm, curShiftIm);
+
+        *curComplexRe = _mm512_mask_mov_ps(*curComplexRe, mask, newRe);
+        *curComplexIm = _mm512_mask_mov_ps(*curComplexIm, mask, newIm);
+
+        // if(curIter == 0) debugPrintV512(curComplexRe,     "curComplexRe");
+        // if(curIter == 0) debugPrintV512(curComplexIm,     "curComplexIm");
+        
+        // if(curIter == 0) lprintf("---------------------------------------------\n");
+        curIter++;
+
+        asm volatile("" :: "v"(*exitIndexes));   // to fool compiler and not allow him remove calculations
+    }
+}
+
+// void showFps(float fps){
+
+//     char printStr[15];
+//     sprintf(printStr, "fps: %.2f", fps);
+//     txSetColor(TX_YELLOW); 
+//     txTextOut(0, 0, printStr);
 // }
-
 
 void debugPrintV512(__m512 v, const char* name){
     float temp[16];
