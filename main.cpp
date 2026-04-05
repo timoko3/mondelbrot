@@ -1,7 +1,7 @@
 #include "TXLib.h"
 
-// #define DEBUG
-// #include "general/debug.h"
+#define DEBUG
+#include "general/debug.h"
 
 #include <stdio.h>
 #include <math.h>
@@ -9,6 +9,7 @@
 #include <assert.h>
 
 #include <immintrin.h>
+#include <windows.h>
 
 const size_t WIDTH_WINDOW         = 800;
 const size_t HEIGHT_WINDOW        = 600;
@@ -23,21 +24,26 @@ const size_t AMOUNT_ITERATIONS    = 256;
 
 const size_t UNWRAP_NUMBER        = 16;
 
+static inline int64_t GetTicks();
+static inline int64_t GetFrequency();
+
 // void debugPrintV512(__m512 v, const char* name);
 // void debugPrintV512i(__m512i v, const char* name);
 // void debugPrintMask16(__mmask16 mask, const char* name);
 
 int main(void){
-    txCreateWindow (WIDTH_WINDOW, HEIGHT_WINDOW);
+    // txCreateWindow (WIDTH_WINDOW, HEIGHT_WINDOW);
 
-    RGBQUAD* videoMemBuffer = txVideoMemory();
+    // RGBQUAD* videoMemBuffer = txVideoMemory();
 
-    float time   = 0;
-    float fps    = 0;
+    volatile float time   = 0;
+    float fps             = 0;
     float curXPosScaled   = 0;
     float curYPosScaled   = 0;
 
-    while(time < 10000){
+    int64_t startTicks = GetTicks();
+
+    while(time < 100000){
         txLock();
         for(int counterY = 0; counterY < (int) HEIGHT_WINDOW; counterY++){
             curYPosScaled = (counterY - 300.0f)  / SCALE_NUM;
@@ -98,33 +104,35 @@ int main(void){
                         curIter++;
                     }
                     
-                    __m512i v_red   = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(5)),  _mm512_set1_epi32(255));
-                    __m512i v_green = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(9)),  _mm512_set1_epi32(255));
-                    __m512i v_blue  = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(13)), _mm512_set1_epi32(255));
+                    // __m512i v_red   = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(5)),  _mm512_set1_epi32(255));
+                    // __m512i v_green = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(9)),  _mm512_set1_epi32(255));
+                    // __m512i v_blue  = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(13)), _mm512_set1_epi32(255));
 
-                    // __m512i v_red      =  exitIndexes;
-                    // __m512i v_green    =  exitIndexes;
-                    // __m512i v_blue     =  exitIndexes;
+                    // __m512i v_pixel = _mm512_or_si512(_mm512_slli_epi32(v_red, 16), _mm512_or_si512(_mm512_slli_epi32(v_green, 8), v_blue));
 
-                    __m512i v_pixel = _mm512_or_si512(_mm512_slli_epi32(v_red, 16), _mm512_or_si512(_mm512_slli_epi32(v_green, 8), v_blue));
+                    // void* dest_addr = &videoMemBuffer[counterX + (-(counterY) + HEIGHT_WINDOW - 1) * WIDTH_WINDOW];
 
-                    void* dest_addr = &videoMemBuffer[counterX + (-(counterY) + HEIGHT_WINDOW - 1) * WIDTH_WINDOW];
-
-                    _mm512_store_si512((__m512i*)dest_addr, v_pixel);
+                    // _mm512_store_si512((__m512i*)dest_addr, v_pixel);
                 }
             }
         }
-        txUnlock();
+        // txUnlock();
         
-        fps = txGetFPS();
+        // fps = txGetFPS();
 
-        char printStr[15];
-        sprintf(printStr, "fps: %.2f", fps);
-        txSetColor (TX_YELLOW); 
-        txTextOut(0, 0, printStr);
-        txRedrawWindow();
+        // char printStr[15];
+        // sprintf(printStr, "fps: %.2f", fps);
+        // txSetColor (TX_YELLOW); 
+        // txTextOut(0, 0, printStr);
+        // txRedrawWindow();
         time += 1;
     }
+
+    int64_t endTicks = GetTicks();
+
+    int64_t frequency = GetFrequency();
+
+    lprintf("result = %lf", (double) (endTicks - startTicks) / (double) frequency);
 
     return 0;
 }
@@ -150,3 +158,19 @@ int main(void){
 //     for (int i = 0; i < 16; i++) lprintf("%d ", (mask >> i) & 1);
 //     lprintf("\n");
 // }
+
+static inline int64_t GetTicks(){
+    LARGE_INTEGER ticks;
+    if (!QueryPerformanceCounter(&ticks)){
+        printf("error");
+    }
+    return ticks.QuadPart;
+}
+
+static inline int64_t GetFrequency(){
+    LARGE_INTEGER frequency;
+    if (!QueryPerformanceFrequency(&frequency)){
+        printf("error");
+    }
+    return frequency.QuadPart;
+}
