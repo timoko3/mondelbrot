@@ -29,6 +29,10 @@ inline void countDotsVectorMb(__m512* curComplexRe, __m512* curComplexIm,
                               __m512 curShiftRe, __m512 curShiftIm,
                               __m512i* exitIndexes);
 
+inline __m512i convertDataForDraw(__m512i exitIndexes);
+inline void    saveDataForDraw(__m512i vPixel, RGBQUAD* videoMemBuffer,
+                               int counterX, int counterY);
+
 inline void showFps(float fps);
 
 static inline int64_t GetTicks();
@@ -52,7 +56,7 @@ int main(void){
         countMandelbrot();
 
         // fps = txGetFPS();
-        showFps(fps);
+        // showFps(fps);
         // txRedrawWindow();
         time += 1;
     }
@@ -90,15 +94,8 @@ void inline countMandelbrot(){
             if(WIDTH_WINDOW - counterX > UNWRAP_NUMBER){
                 countDotsVectorMb(&curComplexRe, &curComplexIm, curShiftRe, curComplexIm, &exitIndexes);
                 
-                // __m512i v_red   = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(5)),  _mm512_set1_epi32(255));
-                // __m512i v_green = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(9)),  _mm512_set1_epi32(255));
-                // __m512i v_blue  = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(13)), _mm512_set1_epi32(255));
-
-                // __m512i v_pixel = _mm512_or_si512(_mm512_slli_epi32(v_red, 16), _mm512_or_si512(_mm512_slli_epi32(v_green, 8), v_blue));
-
-                // void* dest_addr = &videoMemBuffer[counterX + (-(counterY) + HEIGHT_WINDOW - 1) * WIDTH_WINDOW];
-
-                // _mm512_store_si512((__m512i*)dest_addr, v_pixel);
+                __m512i vPixel = convertDataForDraw(exitIndexes);
+                saveDataForDraw(vPixel, videoMemBuffer, counterX, counterY);
             }
         }
     }
@@ -156,6 +153,25 @@ inline void countDotsVectorMb(__m512*  curComplexRe, __m512* curComplexIm,
         asm volatile("" :: "v"(*exitIndexes));   // to fool compiler and not allow him remove calculations
     }
 }
+
+// inline __m512i convertDataForDraw(__m512i exitIndexes){
+    // __m512i v_red   = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(5)),  _mm512_set1_epi32(255));
+    // __m512i v_green = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(9)),  _mm512_set1_epi32(255));
+    // __m512i v_blue  = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(13)), _mm512_set1_epi32(255));
+
+    // __m512i v_pixel = _mm512_or_si512(_mm512_slli_epi32(v_red, 16), _mm512_or_si512(_mm512_slli_epi32(v_green, 8), v_blue));
+
+    // return v_pixel;
+// }
+
+// inline void saveDataForDraw(__m512i vPixel, RGBQUAD* videoMemBuffer,
+//                             int counterX, int counterY){
+//     assert(videoMemBuffer);
+
+    // void* destAddr = &videoMemBuffer[counterX + (-(counterY) + HEIGHT_WINDOW - 1) * WIDTH_WINDOW];
+
+    // _mm512_store_si512((__m512i*)destAddr, vPixel);
+// }
 
 // void showFps(float fps){
 
