@@ -28,6 +28,8 @@ void inline countMandelbrot();
 inline void countDotsVectorMb(__m512* curComplexRe, __m512* curComplexIm, 
                               __m512 curShiftRe, __m512 curShiftIm,
                               __m512i* exitIndexes);
+inline void drawMb(__m512i exitIndexes, RGBQUAD* videoMemBuffer, 
+                  int counterX, int counterY);
 
 inline __m512i convertDataForDraw(__m512i exitIndexes);
 inline void    saveDataForDraw(__m512i vPixel, RGBQUAD* videoMemBuffer,
@@ -94,8 +96,8 @@ void inline countMandelbrot(){
             if(WIDTH_WINDOW - counterX > UNWRAP_NUMBER){
                 countDotsVectorMb(&curComplexRe, &curComplexIm, curShiftRe, curComplexIm, &exitIndexes);
                 
-                __m512i vPixel = convertDataForDraw(exitIndexes);
-                saveDataForDraw(vPixel, videoMemBuffer, counterX, counterY);
+                // drawMb(exitIndexes, videoMemBuffer, counterX, counterY);
+
             }
         }
     }
@@ -153,6 +155,11 @@ inline void countDotsVectorMb(__m512*  curComplexRe, __m512* curComplexIm,
         asm volatile("" :: "v"(*exitIndexes));   // to fool compiler and not allow him remove calculations
     }
 }
+
+// inline void drawMb(__m512i exitIndexes, RGBQUAD* videoMemBuffer, int counterX, int counterY){
+    // __m512i vPixel = convertDataForDraw(exitIndexes);
+    // saveDataForDraw(vPixel, videoMemBuffer, counterX, counterY);
+// }
 
 // inline __m512i convertDataForDraw(__m512i exitIndexes){
     // __m512i v_red   = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(5)),  _mm512_set1_epi32(255));
