@@ -1,7 +1,7 @@
 #include "TXLib.h"
 
-#define DEBUG
-#include "general/debug.h"
+// #define DEBUG
+// #include "general/debug.h"
 
 #include <stdio.h>
 #include <math.h>
@@ -12,37 +12,47 @@
 const size_t WIDTH_WINDOW  = 800;
 const size_t HEIGHT_WINDOW = 600;
 
+const float  dx            = 1 / WIDTH_WINDOW;
+const float  dY            = 1 / HEIGHT_WINDOW;
+
 const size_t AMOUNT_ITERATIONS = 256;
 
-const size_t UNWRAP_NUMBER     = 8;
+const size_t UNWRAP_NUMBER     = 4;
 const size_t SIZE_OF_ARRAY     = UNWRAP_NUMBER * 2;   // for 8 complex numbers
 
 inline void countMondelbrot(float* curComplex, float* curShift, int* exitIndexes, int curIter, char* flag);
-inline void drawMondelbrot(RGBQUAD** videoMemBuffer, int curIter, int curX, int curY);
+inline void drawMondelbrot(RGBQUAD** videoMemBuffer, int curIter, int counterX, int counterY);
 
 int main(void){
     txCreateWindow (WIDTH_WINDOW, HEIGHT_WINDOW);
 
     RGBQUAD* videoMemBuffer = txVideoMemory();
 
-    LPRINTF("MEOW");
-
-    float time = 0;
-    float fps  = 0;
+    float time   = 0;
+    float fps    = 0;
+    float curX   = 0;
+    float curY   = 0;
     while(true){
         txLock();
-        for(int curX = 0; curX < (int) WIDTH_WINDOW; curX++){
-            for(int curY = 0; curY < (int) HEIGHT_WINDOW; curY += 8){
+        for(int counterX = 0; counterX < (int) WIDTH_WINDOW; counterX += UNWRAP_NUMBER, curX += UNWRAP_NUMBER * dx){
+            float x0[UNWRAP_NUMBER] = {curX, curX + 1, curX + 2, curX + 3};
+            float y0[UNWRAP_NUMBER] = {curY, curY, curY, curY};
+
+            float curShiftX[UNWRAP_NUMBER] = {}; for(int i = 0; i < UNWRAP_NUMBER; i++) curShiftX[i] = x0[i];
+            float curShiftY[UNWRAP_NUMBER] = {}; for(int i = 0; i < UNWRAP_NUMBER; i++) curShiftX[i] = y0[i];
+
+            for(int counterY = 0; counterY < (int) HEIGHT_WINDOW; counterY += 8){
                 float curComplex[SIZE_OF_ARRAY] = {0.0}; 
                 int   exitIndexes[UNWRAP_NUMBER] = {0};
+                // for(int i = 0; i < UNWRAP_NUMBER; i++) exitIndexes[i] = AMOUNT_ITERATIONS;
 
-                if(HEIGHT_WINDOW - curY > 8){
+                if(HEIGHT_WINDOW - counterY > 8){
 
                     float curShift[SIZE_OF_ARRAY] = {0.0};
 
-                    for(size_t i = 0; i < SIZE_OF_ARRAY / 2; i++){
-                        curShift[i]     = (curX - 1000 - time) / (450.0);
-                        curShift[i + 1] = (curY - 300 + i) / (450.0);
+                    for(int i = 0; i < UNWRAP_NUMBER; i++){
+                        curShift[2 * i]     = (counterX - 1000.0f - time) / 450.0f;
+                        curShift[2 * i + 1] = (counterY + i - 300.0f) / 450.0f;
                     }
 
                     char countFlag[UNWRAP_NUMBER] = {0};
@@ -62,7 +72,9 @@ int main(void){
                     }
                 
                     for(size_t i = 0; i < SIZE_OF_ARRAY / 2; i++){
-                        drawMondelbrot(&videoMemBuffer, exitIndexes[i], curX, curY + i);
+                        if (counterY + i < HEIGHT_WINDOW) { 
+                            drawMondelbrot(&videoMemBuffer, exitIndexes[i], counterX, counterY + i);
+                        }
                     }
 
                 }
@@ -86,32 +98,27 @@ int main(void){
 
 
 inline void countMondelbrot(float* curComplex, float* curShift, int* exitIndexes, int curIter, char* flag){
-    assert(curComplex);
-    assert(curShift);
-    assert(exitIndexes);
-    assert(flag);
-
-    if(*flag) return;
+    // assert(curComplex);
+    // assert(curShift);
+    // assert(exitIndexes);
+    // assert(flag);
     
     float curComplexReSquare = (*curComplex)       * (*curComplex);
     float curComplexImSquare = (*(curComplex + 1)) * (*(curComplex + 1));
     float curComplexImRe     = (*(curComplex + 1)) * (*curComplex);
     
-    if(curComplexReSquare + curComplexImSquare > 4){
-        *exitIndexes = curIter;
-        *flag = 1;
-        return;
-    } 
+    int belongsSet           = (curComplexReSquare + curComplexImSquare <= 4.0f); 
+    *exitIndexes += belongsSet;
 
     *curComplex       = (curComplexReSquare - curComplexImSquare + *curShift);
     *(curComplex + 1) = 2 * curComplexImRe + *(curShift + 1);
 
 }
 
-inline void drawMondelbrot(RGBQUAD** videoMemBuffer, int curIter, int curX, int curY){
+inline void drawMondelbrot(RGBQUAD** videoMemBuffer, int curIter, int counterX, int counterY){
     assert(videoMemBuffer);
 
-    (*videoMemBuffer)[curX + (-curY + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbRed   = curIter % 113;
-    (*videoMemBuffer)[curX + (-curY + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbGreen = curIter % 128;
-    (*videoMemBuffer)[curX + (-curY + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbBlue  = curIter % 10;
+    (*videoMemBuffer)[counterX + (-counterY + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbRed   = curIter % 113;
+    (*videoMemBuffer)[counterX + (-counterY + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbGreen = curIter % 128;
+    (*videoMemBuffer)[counterX + (-counterY + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbBlue  = curIter % 10;
 }
