@@ -36,14 +36,14 @@ int main(void){
 
     // RGBQUAD* videoMemBuffer = txVideoMemory();
 
-    volatile float time   = 0;
+    float time   = 0;
     float fps             = 0;
     float curXPosScaled   = 0;
     float curYPosScaled   = 0;
 
     int64_t startTicks = GetTicks();
 
-    while(time < 100000){
+    while(time < 1000){
         // txLock();
         for(int counterY = 0; counterY < (int) HEIGHT_WINDOW; counterY++){
             curYPosScaled = (counterY - 300.0f)  / SCALE_NUM;
@@ -102,6 +102,8 @@ int main(void){
                         
                         // if(curIter == 0) lprintf("---------------------------------------------\n");
                         curIter++;
+
+                        asm volatile("" :: "v"(exitIndexes));
                     }
                     
                     // __m512i v_red   = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(5)),  _mm512_set1_epi32(255));
@@ -132,7 +134,7 @@ int main(void){
 
     int64_t frequency = GetFrequency();
 
-    // lprintf("result = %lf", (double) (endTicks - startTicks) / (double) frequency);
+    lprintf("result = %lf", (double) (endTicks - startTicks) / (double) frequency);
 
     return 0;
 }
