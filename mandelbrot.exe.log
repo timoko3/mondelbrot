@@ -1343,3 +1343,1315 @@ Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
 Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7EC155ED5 в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 80. Попытка записать данные по адресу 0x0000024D31A85881 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7EC1999A4 (64-bit), Flags: CMdRe0, Thread: 0x19AC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7EC155ED5 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:80:
+
+     78:                 for(int i = 0; i < UNWRAP_NUMBER; i++){
+     79:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbRed   = exitIndexes[i] % 113;
+=>   80:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbGreen = exitIndexes[i] % 128;
+     81:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbBlue  = exitIndexes[i] % 10;
+     82:                 }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 13:38:31, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 13:38:38
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7EC155ED5 в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 80. Попытка записать данные по адресу 0x0000024D31A85881 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7EC1999A4 (64-bit), Flags: CMdRe0, Thread: 0x19AC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7EC155ED5 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:80:
+
+     78:                 for(int i = 0; i < UNWRAP_NUMBER; i++){
+     79:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbRed   = exitIndexes[i] % 113;
+=>   80:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbGreen = exitIndexes[i] % 128;
+     81:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbBlue  = exitIndexes[i] % 10;
+     82:                 }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 13:38:31, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 13:38:38
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6BBA75E31 в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 80. Попытка записать данные по адресу 0x000002AB05185881 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6BBAB99A4 (64-bit), Flags: CMdRe0, Thread: 0x6B24 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6BBA75E31 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:80:
+
+     78:                 for(int i = 0; i < UNWRAP_NUMBER; i++){
+     79:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbRed   = exitIndexes[i] % 113;
+=>   80:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbGreen = exitIndexes[i] % 128;
+     81:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbBlue  = exitIndexes[i] % 10;
+     82:                 }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 13:39:32, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 13:39:39
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6BBA75E31 в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 80. Попытка записать данные по адресу 0x000002AB05185881 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6BBAB99A4 (64-bit), Flags: CMdRe0, Thread: 0x6B24 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6BBA75E31 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:80:
+
+     78:                 for(int i = 0; i < UNWRAP_NUMBER; i++){
+     79:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbRed   = exitIndexes[i] % 113;
+=>   80:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbGreen = exitIndexes[i] % 128;
+     81:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbBlue  = exitIndexes[i] % 10;
+     82:                 }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 13:39:32, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 13:39:39
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7C3C65E31 в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 80. Попытка записать данные по адресу 0x0000024B42A55881 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7C3CA99A4 (64-bit), Flags: CMdRe0, Thread: 0x724 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7C3C65E31 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:80:
+
+     78:                 for(int i = 0; i < UNWRAP_NUMBER; i++){
+     79:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbRed   = exitIndexes[i] % 113;
+=>   80:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbGreen = exitIndexes[i] % 128;
+     81:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbBlue  = exitIndexes[i] % 10;
+     82:                 }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 13:43:15, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 13:43:22
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7C3C65E31 в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 80. Попытка записать данные по адресу 0x0000024B42A55881 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7C3CA99A4 (64-bit), Flags: CMdRe0, Thread: 0x724 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7C3C65E31 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:80:
+
+     78:                 for(int i = 0; i < UNWRAP_NUMBER; i++){
+     79:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbRed   = exitIndexes[i] % 113;
+=>   80:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbGreen = exitIndexes[i] % 128;
+     81:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbBlue  = exitIndexes[i] % 10;
+     82:                 }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 13:43:15, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 13:43:22
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF62FDB5E33 в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 79. Попытка записать данные по адресу 0x00000228EDAE5881 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF62FDF99A4 (64-bit), Flags: CMdRe0, Thread: 0x1F30 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF62FDB5E33 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:79:
+
+     77:                 for(int i = 0; i < UNWRAP_NUMBER; i++){
+     78:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbRed   = exitIndexes[i] % 113;
+=>   79:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbGreen = exitIndexes[i] % 128;
+     80:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbBlue  = exitIndexes[i] % 10;
+     81:                 }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 13:44:27, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 13:44:34
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF62FDB5E33 в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 79. Попытка записать данные по адресу 0x00000228EDAE5881 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF62FDF99A4 (64-bit), Flags: CMdRe0, Thread: 0x1F30 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF62FDB5E33 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:79:
+
+     77:                 for(int i = 0; i < UNWRAP_NUMBER; i++){
+     78:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbRed   = exitIndexes[i] % 113;
+=>   79:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbGreen = exitIndexes[i] % 128;
+     80:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbBlue  = exitIndexes[i] % 10;
+     81:                 }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 13:44:27, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 13:44:34
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6E44F605C в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 78. Попытка записать данные по адресу 0x000001F619A45882 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6E45399A4 (64-bit), Flags: CMdRe0, Thread: 0x1B8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6E44F605C in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:80:
+
+     78:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbRed   = exitIndexes[i] % 113;
+     79:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbGreen = exitIndexes[i] % 128;
+=>   80:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbBlue  = exitIndexes[i] % 10;
+     81:                 }
+     82: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 13:47:59, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 13:48:07
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6E44F605C в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 78. Попытка записать данные по адресу 0x000001F619A45882 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6E45399A4 (64-bit), Flags: CMdRe0, Thread: 0x1B8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6E44F605C in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:80:
+
+     78:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbRed   = exitIndexes[i] % 113;
+     79:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbGreen = exitIndexes[i] % 128;
+=>   80:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbBlue  = exitIndexes[i] % 10;
+     81:                 }
+     82: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 13:47:59, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 13:48:07
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF75848605C в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 78. Попытка записать данные по адресу 0x000002AF7ADA5882 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7584C99A4 (64-bit), Flags: CMdRe0, Thread: 0x764 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF75848605C in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:80:
+
+     78:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbRed   = exitIndexes[i] % 113;
+     79:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbGreen = exitIndexes[i] % 128;
+=>   80:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbBlue  = exitIndexes[i] % 10;
+     81:                 }
+     82: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 13:51:50, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 13:51:57
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF75848605C в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 78. Попытка записать данные по адресу 0x000002AF7ADA5882 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7584C99A4 (64-bit), Flags: CMdRe0, Thread: 0x764 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF75848605C in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:80:
+
+     78:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbRed   = exitIndexes[i] % 113;
+     79:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbGreen = exitIndexes[i] % 128;
+=>   80:                     videoMemBuffer[counterX + (-counterY + i + HEIGHT_WINDOW - 1) * WIDTH_WINDOW].rgbBlue  = exitIndexes[i] % 10;
+     81:                 }
+     82: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 13:51:50, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 13:51:57
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF619E75EFC в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 56 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF619EB99A4 (64-bit), Flags: CMdRe0, Thread: 0x2C18 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF619E75EFC in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:62:
+
+     60:                     float curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     61: 
+=>   62:                     int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     63: 
+     64:                     int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:00:04, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:00:11
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF619E75EFC в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 56 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF619EB99A4 (64-bit), Flags: CMdRe0, Thread: 0x2C18 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF619E75EFC in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:62:
+
+     60:                     float curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     61: 
+=>   62:                     int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     63: 
+     64:                     int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:00:04, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:00:11
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF781B05E8C в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 56 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF781B499A4 (64-bit), Flags: CMdRe0, Thread: 0x302C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF781B05E8C in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:62:
+
+     60:                     float curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     61: 
+=>   62:                     int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     63: 
+     64:                     int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:02:33, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:02:40
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF781B05E8C в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 56 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF781B499A4 (64-bit), Flags: CMdRe0, Thread: 0x302C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF781B05E8C in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:62:
+
+     60:                     float curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     61: 
+=>   62:                     int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     63: 
+     64:                     int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:02:33, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:02:40
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF664E65EAA в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 57 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF664EA99A4 (64-bit), Flags: CMdRe0, Thread: 0xE6C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF664E65EAA in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:63:
+
+     61:                         float curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     62: 
+=>   63:                         int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     64: 
+     65:                         int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:04:03, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:04:10
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF664E65EAA в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 57 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF664EA99A4 (64-bit), Flags: CMdRe0, Thread: 0xE6C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF664E65EAA in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:63:
+
+     61:                         float curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     62: 
+=>   63:                         int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     64: 
+     65:                         int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:04:03, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:04:10
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF69F3D5F3A в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 57 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF69F4199A4 (64-bit), Flags: CMdRe0, Thread: 0x5D0C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF69F3D5F3A in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:63:
+
+     61:                         float curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     62: 
+=>   63:                         int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     64: 
+     65:                         int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:04:58, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:05:05
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF69F3D5F3A в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 57 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF69F4199A4 (64-bit), Flags: CMdRe0, Thread: 0x5D0C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF69F3D5F3A in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:63:
+
+     61:                         float curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     62: 
+=>   63:                         int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     64: 
+     65:                         int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:04:58, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:05:05
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF706A15EAA в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 57 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF706A599A4 (64-bit), Flags: CMdRe0, Thread: 0x5E1C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF706A15EAA in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:63:
+
+     61:                         float curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     62: 
+=>   63:                         int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     64: 
+     65:                         int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:05:53, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:06:00
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF706A15EAA в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 57 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF706A599A4 (64-bit), Flags: CMdRe0, Thread: 0x5E1C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF706A15EAA in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:63:
+
+     61:                         float curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     62: 
+=>   63:                         int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     64: 
+     65:                         int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:05:53, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:06:00
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF6D9415EAA в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 57 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6D94599A4 (64-bit), Flags: CMdRe0, Thread: 0x1A50 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6D9415EAA in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:63:
+
+     61:                         float curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     62: 
+=>   63:                         int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     64: 
+     65:                         int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:07:02, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:07:09
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF6D9415EAA в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 57 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6D94599A4 (64-bit), Flags: CMdRe0, Thread: 0x1A50 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6D9415EAA in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:63:
+
+     61:                         float curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     62: 
+=>   63:                         int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     64: 
+     65:                         int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:07:02, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:07:09
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF66CC75EAA в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 57 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF66CCB99A4 (64-bit), Flags: CMdRe0, Thread: 0x67B4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF66CC75EAA in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:63:
+
+     61:                         float curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     62: 
+=>   63:                         int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     64: 
+     65:                         int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:08:37, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:08:45
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF66CC75EAA в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 57 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF66CCB99A4 (64-bit), Flags: CMdRe0, Thread: 0x67B4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF66CC75EAA in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:63:
+
+     61:                         float curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     62: 
+=>   63:                         int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     64: 
+     65:                         int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:08:37, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:08:45
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF76AB75ED1 в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 57 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF76ABB99A4 (64-bit), Flags: CMdRe0, Thread: 0x1210 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF76AB75ED1 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:63:
+
+     61:                         double curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     62: 
+=>   63:                         int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     64: 
+     65:                         int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:09:15, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:09:22
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF76AB75ED1 в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 57 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF76ABB99A4 (64-bit), Flags: CMdRe0, Thread: 0x1210 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF76AB75ED1 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:63:
+
+     61:                         double curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     62: 
+=>   63:                         int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     64: 
+     65:                         int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:09:15, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:09:22
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF7D7645EAA в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 57 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7D76899A4 (64-bit), Flags: CMdRe0, Thread: 0x1084 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7D7645EAA in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:63:
+
+     61:                         float curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     62: 
+=>   63:                         int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     64: 
+     65:                         int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:10:22, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:10:29
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF7D7645EAA в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 57 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7D76899A4 (64-bit), Flags: CMdRe0, Thread: 0x1084 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7D7645EAA in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:63:
+
+     61:                         float curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     62: 
+=>   63:                         int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     64: 
+     65:                         int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:10:22, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:10:29
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF718B65EAA в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 57 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF718BA99A4 (64-bit), Flags: CMdRe0, Thread: 0x625C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF718B65EAA in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:63:
+
+     61:                         float curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     62: 
+=>   63:                         int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     64: 
+     65:                         int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:14:59, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:15:06
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Переполнение при операции с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_OVERFLOW (0xC0000091) при выполнении кода по адресу 0x00007FF718B65EAA в функции main() в файле C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp на строке 57 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF718BA99A4 (64-bit), Flags: CMdRe0, Thread: 0x625C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF718B65EAA in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:63:
+
+     61:                         float curComplexSquare[UNWRAP_NUMBER]   = {0.0}; for(int i = 0; i < UNWRAP_NUMBER; i++) curComplexSquare[i]     = curComplexReSquare[i] + curComplexImSquare[i];
+     62: 
+=>   63:                         int curComplexCmp[UNWRAP_NUMBER]        = {0};   for(int i = 0; i < UNWRAP_NUMBER; i++) if(curComplexSquare[i] < MAX_COMPLEX_NUM_SIZE) curComplexCmp[i] = 1;
+     64: 
+     65:                         int mask = 0;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  5 2026 14:14:59, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  5 2026 14:15:06
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
