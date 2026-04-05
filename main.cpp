@@ -1,7 +1,7 @@
 #include "TXLib.h"
 
-#define DEBUG
-#include "general/debug.h"
+// #define DEBUG
+// #include "general/debug.h"
 
 #include <stdio.h>
 #include <math.h>
@@ -23,12 +23,9 @@ const size_t AMOUNT_ITERATIONS    = 256;
 
 const size_t UNWRAP_NUMBER        = 16;
 
-inline void countMondelbrot(float* curComplex, float* curShift, int* exitIndexes, int curIter, char* flag);
-inline void drawMondelbrot(RGBQUAD** videoMemBuffer, int curIter, int counterX, int counterY);
-
-void debugPrintV512(__m512 v, const char* name);
-void debugPrintV512i(__m512i v, const char* name);
-void debugPrintMask16(__mmask16 mask, const char* name);
+// void debugPrintV512(__m512 v, const char* name);
+// void debugPrintV512i(__m512i v, const char* name);
+// void debugPrintMask16(__mmask16 mask, const char* name);
 
 int main(void){
     txCreateWindow (WIDTH_WINDOW, HEIGHT_WINDOW);
@@ -40,7 +37,6 @@ int main(void){
     float curXPosScaled   = 0;
     float curYPosScaled   = 0;
 
-    debugPrintMask16(0x0f0f, "test");
     while(time < 10000){
         txLock();
         for(int counterY = 0; counterY < (int) HEIGHT_WINDOW; counterY++){
@@ -78,7 +74,9 @@ int main(void){
 
                         __m512 unwNumber        =  _mm512_set1_ps(MAX_COMPLEX_NUM_SIZE);
                         __mmask16 mask          = _mm512_mask_cmp_ps_mask(0xFFFF, curComplexSquare, unwNumber, _CMP_LT_OS);
-                        exitIndexes             = _mm512_mask_add_epi32(exitIndexes, mask, exitIndexes, _mm512_set1_epi32(1));
+
+                        __m512i ones = _mm512_set1_epi32(1);
+                        exitIndexes = _mm512_add_epi32(exitIndexes, _mm512_maskz_mov_epi32(mask, ones));
                         
                         if (_kortestz_mask16_u8(mask, mask)) break;
 
@@ -131,24 +129,24 @@ int main(void){
     return 0;
 }
 
-void debugPrintV512(__m512 v, const char* name){
-    float temp[16];
-    _mm512_storeu_ps(temp, v);
-    lprintf("%s: ", name);
-    for (int i = 0; i < 16; i++) lprintf("%.2f ", temp[i]);
-    lprintf("\n");
-}
+// void debugPrintV512(__m512 v, const char* name){
+//     float temp[16];
+//     _mm512_storeu_ps(temp, v);
+//     lprintf("%s: ", name);
+//     for (int i = 0; i < 16; i++) lprintf("%.2f ", temp[i]);
+//     lprintf("\n");
+// }
 
-void debugPrintV512i(__m512i v, const char* name){
-    int temp[16];
-    _mm512_storeu_si512((__m512i*)temp, v);
-    lprintf("%s: ", name);
-    for (int i = 0; i < 16; i++) lprintf("%d ", temp[i]);
-    lprintf("\n");
-}
+// void debugPrintV512i(__m512i v, const char* name){
+//     int temp[16];
+//     _mm512_storeu_si512((__m512i*)temp, v);
+//     lprintf("%s: ", name);
+//     for (int i = 0; i < 16; i++) lprintf("%d ", temp[i]);
+//     lprintf("\n");
+// }
 
-void debugPrintMask16(__mmask16 mask, const char* name){
-    lprintf("%s: ", name);
-    for (int i = 0; i < 16; i++) lprintf("%d ", (mask >> i) & 1);
-    lprintf("\n");
-}
+// void debugPrintMask16(__mmask16 mask, const char* name){
+//     lprintf("%s: ", name);
+//     for (int i = 0; i < 16; i++) lprintf("%d ", (mask >> i) & 1);
+//     lprintf("\n");
+// }
