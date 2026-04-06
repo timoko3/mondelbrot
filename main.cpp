@@ -2,11 +2,14 @@
 #define DEBUG
 #include "general/debug.h"
 
+#include "measuresHandler/measuresHandler.h"
+
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
 #include <assert.h>
 #include <cstdint>
+#include <malloc.h>
 
 #include <immintrin.h>
 #include <windows.h>
@@ -25,6 +28,8 @@ const size_t AMOUNT_ITERATIONS    = 256;
 const size_t UNWRAP_NUMBER        = 16;
 
 typedef double perf_time_t;
+
+const size_t AMOUNT_MEASURES      = 2;
 
 perf_time_t calculateFrames(int nFrames);
 void inline countMandelbrot();
@@ -50,11 +55,22 @@ void debugPrintMask16(__mmask16 mask, const char* name);
 int main(void){
     // txCreateWindow (WIDTH_WINDOW, HEIGHT_WINDOW);
 
+    perf_time_t* perfromTimes = (perf_time_t*) calloc(AMOUNT_MEASURES, sizeof(perf_time_t));  
+    assert(perfromTimes);
 
-    perf_time_t performTime = calculateFrames(1000);
 
+    for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+        perfromTimes[curMeasureInd] = calculateFrames(1000);
+    }
 
-    lprintf("result = %lf", performTime);
+    perf_time_t avg = countAverage(perfromTimes, 2, AMOUNT_MEASURES);
+    perf_time_t avgInfelicity = 0;
+    perf_time_t* infelicities = countInfelicity(avg, perfromTimes, AMOUNT_MEASURES, &avgInfelicity);
+
+    createCsvWithResults(perfromTimes, infelicities, avg, avgInfelicity, AMOUNT_MEASURES);
+
+    free(perfromTimes);
+    free(infelicities);
 
     return 0;
 }

@@ -40,11 +40,11 @@ double* countInfelicity(double avg, double* measures, size_t amountMeasures, dou
 
     *avgInfelicity = sumInfelicities / amountMeasures;
     
-    for(size_t curInd = 0; curInd < amountMeasures; curInd++){
-        printf("%lu %.2lf\n", curInd + 1, infelicities[curInd]);
-    }
+    // for(size_t curInd = 0; curInd < amountMeasures; curInd++){
+    //     printf("%lu %.2lf\n", curInd + 1, infelicities[curInd]);
+    // }
 
-    printf("Средняя погрешность: %.2lf\n", *avgInfelicity);
+    // printf("Средняя погрешность: %.2lf\n", *avgInfelicity);
 
     return infelicities;
 }
@@ -60,12 +60,12 @@ void createCsvWithResults(double* measures, double* infelicities,
     };
 
     FILE* csvResPtr = myOpenFile(&CSVresults);
-    fprintf(csvResPtr, "test,value,error\n");
+    fprintf(csvResPtr, "testN,value,infelicity\n");
     for(size_t curInd = 0; curInd < amountMeasures; curInd++){
         fprintf(csvResPtr, "%lu,%.2lf,%.2lf\n", curInd + 1, measures[curInd], infelicities[curInd]);
     }
 
-    fprintf(csvResPtr, "%lu,%.2lf,%.2lf\n", amountMeasures + 1, avgMeasures, avgInfelicity);
+    fprintf(csvResPtr, "Average: %lu,%.2lf,%.2lf\n", amountMeasures + 1, avgMeasures, avgInfelicity);
 
     fclose(csvResPtr);
 }
