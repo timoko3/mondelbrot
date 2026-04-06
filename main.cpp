@@ -220,6 +220,34 @@ inline void countDotsVectorMb(__m512*  curComplexRe, __m512* curComplexIm,
 //     txTextOut(0, 0, printStr);
 // }
 
+inline void basicVersionCalculations(){
+    while(true){
+        for(int curX = 0; curX < (int) WIDTH_WINDOW; curX++){
+            for(int curY = 0; curY < (int) HEIGHT_WINDOW; curY++){
+                double curComplexRe         = 0;
+                double curComplexIm         = 0;
+
+                double curShiftRe           = (curX - 1000) / (450.0); 
+                double curShiftIm           = (curY - 300) / (450.0); 
+
+                int curIter = 0;
+                while(curComplexRe * curComplexRe + curComplexIm * curComplexIm < 4 && curIter < AMOUNT_ITERATIONS){
+                    nextComplexRe = (curComplexRe * curComplexRe - curComplexIm * curComplexIm + curShiftRe);
+                    nextComplexIm = 2 * curComplexRe * curComplexIm + curShiftIm;
+
+                    curComplexRe = nextComplexRe;
+                    curComplexIm = nextComplexIm;
+                    
+                    curIter++;
+                }
+                
+                
+                
+            }
+        }
+    }
+}
+
 void debugPrintV512(__m512 v, const char* name){
     float temp[16];
     _mm512_storeu_ps(temp, v);
