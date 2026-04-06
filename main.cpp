@@ -1,3 +1,4 @@
+#include "TXLib.h"
 
 #define DEBUG
 #include "general/debug.h"
@@ -29,7 +30,7 @@ const size_t UNWRAP_NUMBER        = 16;
 
 typedef double perf_time_t;
 
-const size_t AMOUNT_MEASURES      = 10;
+const size_t AMOUNT_MEASURES      = 1;
 
 perf_time_t calculateFrames(int nFrames);
 void inline countMandelbrot();
@@ -57,6 +58,8 @@ void debugPrintMask16(__mmask16 mask, const char* name);
 int main(void){
     // txCreateWindow (WIDTH_WINDOW, HEIGHT_WINDOW);
 
+    fprintf(stderr, "Start\n");
+
     SetProcessAffinityMask(GetCurrentProcess(), 1 << 2);
     SetThreadAffinityMask (GetCurrentThread(),  1 << 2);
     SetPriorityClass(GetCurrentProcess(), HIGH_PRIORITY_CLASS);
@@ -79,6 +82,8 @@ int main(void){
     free(perfromTimes);
     free(infelicities);
 
+    fprintf(stderr, "End\n");
+
     return 0;
 }
 
@@ -89,8 +94,8 @@ perf_time_t calculateFrames(int nFrames){
     float fps    = 0;
 
     while(curFrame < nFrames){
-        // countMandelbrot();
-        basicVersionCalculations();
+        countMandelbrot();
+        // basicVersionCalculations();
 
         // fps = txGetFPS();
         // showFps(fps);
