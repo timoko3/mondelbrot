@@ -29,7 +29,7 @@ const size_t UNWRAP_NUMBER        = 16;
 
 typedef double perf_time_t;
 
-const size_t AMOUNT_MEASURES      = 2;
+const size_t AMOUNT_MEASURES      = 50;
 
 perf_time_t calculateFrames(int nFrames);
 void inline countMandelbrot();
