@@ -24,6 +24,9 @@ const size_t AMOUNT_ITERATIONS    = 256;
 
 const size_t UNWRAP_NUMBER        = 16;
 
+typedef double perf_time_t;
+
+perf_time_t calculateFrames(int nFrames);
 void inline countMandelbrot();
 inline void countDotsVectorMb(__m512* curComplexRe, __m512* curComplexIm, 
                               __m512 curShiftRe, __m512 curShiftIm,
@@ -47,34 +50,42 @@ void debugPrintMask16(__mmask16 mask, const char* name);
 int main(void){
     // txCreateWindow (WIDTH_WINDOW, HEIGHT_WINDOW);
 
-    // RGBQUAD* videoMemBuffer = txVideoMemory();
 
-    float time   = 0;
-    float fps    = 0;
+    perf_time_t performTime = calculateFrames(1000);
 
+
+    lprintf("result = %lf", performTime);
+
+    return 0;
+}
+
+perf_time_t calculateFrames(int nFrames){
     int64_t startTicks = GetTicks();
 
-    while(time < 1000){
+    int curFrame = 0;
+    float fps    = 0;
+
+    while(curFrame < nFrames){
         countMandelbrot();
 
         // fps = txGetFPS();
         // showFps(fps);
         // txRedrawWindow();
-        time += 1;
+        curFrame += 1;
     }
 
     int64_t endTicks = GetTicks();
 
     int64_t frequency = GetFrequency();
 
-    lprintf("result = %lf", (double) (endTicks - startTicks) / (double) frequency);
-
-    return 0;
+    return (double) (endTicks - startTicks) / (double) frequency;
 }
 
 void inline countMandelbrot(){
     float curXPosScaled   = 0;
     float curYPosScaled   = 0;
+
+    // RGBQUAD* videoMemBuffer = txVideoMemory();
 
     // txLock();
     for(int counterY = 0; counterY < (int) HEIGHT_WINDOW; counterY++){
