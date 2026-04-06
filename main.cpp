@@ -29,7 +29,7 @@ const size_t UNWRAP_NUMBER        = 16;
 
 typedef double perf_time_t;
 
-const size_t AMOUNT_MEASURES      = 50;
+const size_t AMOUNT_MEASURES      = 10;
 
 perf_time_t calculateFrames(int nFrames);
 void inline countMandelbrot();
@@ -47,6 +47,8 @@ inline void showFps(float fps);
 
 static inline int64_t GetTicks();
 static inline int64_t GetFrequency();
+
+inline void basicVersionCalculations();
 
 void debugPrintV512(__m512 v, const char* name);
 void debugPrintV512i(__m512i v, const char* name);
@@ -87,7 +89,8 @@ perf_time_t calculateFrames(int nFrames){
     float fps    = 0;
 
     while(curFrame < nFrames){
-        countMandelbrot();
+        // countMandelbrot();
+        basicVersionCalculations();
 
         // fps = txGetFPS();
         // showFps(fps);
@@ -221,29 +224,32 @@ inline void countDotsVectorMb(__m512*  curComplexRe, __m512* curComplexIm,
 // }
 
 inline void basicVersionCalculations(){
-    while(true){
-        for(int curX = 0; curX < (int) WIDTH_WINDOW; curX++){
-            for(int curY = 0; curY < (int) HEIGHT_WINDOW; curY++){
-                double curComplexRe         = 0;
-                double curComplexIm         = 0;
+    for(int curX = 0; curX < (int) WIDTH_WINDOW; curX++){
+        for(int curY = 0; curY < (int) HEIGHT_WINDOW; curY++){
+            float curComplexRe         = 0;
+            float curComplexIm         = 0;
 
-                double curShiftRe           = (curX - 1000) / (450.0); 
-                double curShiftIm           = (curY - 300) / (450.0); 
+            double curComplexRe2       = 0;     // overflow if float        
+            double curComplexIm2       = 0;     // overflow if float
+            float curComplexImRe       = 0;
 
-                int curIter = 0;
-                while(curComplexRe * curComplexRe + curComplexIm * curComplexIm < 4 && curIter < AMOUNT_ITERATIONS){
-                    nextComplexRe = (curComplexRe * curComplexRe - curComplexIm * curComplexIm + curShiftRe);
-                    nextComplexIm = 2 * curComplexRe * curComplexIm + curShiftIm;
+            float curShiftRe           = (curX - 1000) / (450.0); 
+            float curShiftIm           = (curY - 300) / (450.0); 
 
-                    curComplexRe = nextComplexRe;
-                    curComplexIm = nextComplexIm;
-                    
-                    curIter++;
-                }
-                
-                
-                
+            int curIter = 0;
+            while(curComplexRe2 + curComplexIm2 < 4 && curIter < AMOUNT_ITERATIONS){
+                curComplexRe2        = curComplexRe * curComplexRe;
+                curComplexIm2        = curComplexIm * curComplexIm;
+                curComplexImRe       = curComplexIm * curComplexRe;
+
+                curComplexRe = (curComplexRe2 - curComplexIm2 + curShiftRe);
+                curComplexIm = 2 * curComplexImRe + curShiftIm;
+
+                curIter++;
+
+                asm volatile("" :: ""(curIter)); 
             }
+                        
         }
     }
 }
