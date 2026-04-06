@@ -34,7 +34,7 @@ typedef double perf_time_t;
 const size_t AMOUNT_MEASURES      = 1;
 
 perf_time_t calculateFrames(int nFrames, bool graphicsFlag);
-void inline countMandelbrot(bool graphicsFlag);
+void inline countMandelbrot(float* moveY, float* moveX, float* scaleShift, bool graphicsFlag);
 inline void countDotsVectorMb(__m512* curComplexRe, __m512* curComplexIm, 
                               __m512 curShiftRe, __m512 curShiftIm,
                               __m512i* exitIndexes);
@@ -113,11 +113,15 @@ int main(int argc, char* argv[]){
 perf_time_t calculateFrames(int nFrames, bool graphicsFlag = true){
     int64_t startTicks = GetTicks();
 
-    int curFrame = 0;
-    float fps    = 0;
+    int curFrame     = 0;
+    float fps        = 0;
+
+    float moveY      = 0;
+    float moveX      = 0;
+    float scaleShift = 0;
 
     while(curFrame < nFrames){
-        countMandelbrot(graphicsFlag);
+        countMandelbrot(&moveY, &moveX, &scaleShift, graphicsFlag);
         // basicVersionCalculations();
 
         if(graphicsFlag){
@@ -136,19 +140,27 @@ perf_time_t calculateFrames(int nFrames, bool graphicsFlag = true){
     return (double) (endTicks - startTicks) / (double) frequency;
 }
 
-void inline countMandelbrot(bool graphicsFlag){
+void inline countMandelbrot(float* moveY, float* moveX, float* scaleShift, bool graphicsFlag){
     float curXPosScaled   = 0;
     float curYPosScaled   = 0;
 
     RGBQUAD* videoMemBuffer = NULL;
 
+    if(GetAsyncKeyState(VK_UP))    (*moveY)--;
+    if(GetAsyncKeyState(VK_DOWN))  (*moveY)++;
+    if(GetAsyncKeyState(VK_LEFT))  (*moveX)--;
+    if(GetAsyncKeyState(VK_RIGHT)) (*moveX)++;
+
+    if(GetAsyncKeyState(VK_ADD))      (*scaleShift)++;
+    if(GetAsyncKeyState(VK_SUBTRACT)) (*scaleShift)--;
+
     if(graphicsFlag) videoMemBuffer = txVideoMemory();
 
     if(graphicsFlag) txLock();
     for(int counterY = 0; counterY < (int) HEIGHT_WINDOW; counterY++){
-        curYPosScaled = ((float) counterY - 300.0f)  / SCALE_NUM;
+        curYPosScaled = ((float) counterY - 300.0f + *moveY)  / (SCALE_NUM + *scaleShift);
         for(int counterX = 0; counterX < (int) WIDTH_WINDOW; counterX += UNWRAP_NUMBER){
-            curXPosScaled = ((float) counterX - 1000.0f) / SCALE_NUM;
+            curXPosScaled = ((float) counterX - 1000.0f + *moveX) / (SCALE_NUM + *scaleShift);
 
             __m512 curShiftRe = _mm512_set_ps(curXPosScaled + 15 * dx, curXPosScaled + 14 * dx, curXPosScaled + 13 * dx, curXPosScaled + 12 * dx,
                 curXPosScaled + 11 * dx, curXPosScaled + 10 * dx, curXPosScaled + 9 * dx,  curXPosScaled + 8 * dx,
