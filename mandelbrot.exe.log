@@ -2901,3 +2901,609 @@ Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
 Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF64C6E990B в функции calculateFrames() в файле C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h на строке 584. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF64C82A9A4 (64-bit), Flags: CMdrE0, Thread: 0x98C0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF64C6E990B in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h:7485:
+
+   7483: _mm512_or_si512 (__m512i __A, __m512i __B)
+   7484: {
+=> 7485:   return (__m512i) ((__v16su) __A | (__v16su) __B);
+   7486: }
+   7487: 
+# 2 0x00007FF64C6E1340 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: __tmainCRTStartup()
+# 3 0x00007FF64C6E1146 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: mainCRTStartup()
+# 4 0x00007FFC8741E8D7 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 5 0x00007FFC88E6C48C in C:\Windows\SYSTEM32\ntdll.dll: RtlUserThreadStart()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  6 2026 17:58:30, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  6 2026 18:06:13
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF68FD298DC в функции calculateFrames() в файле C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h на строке 584. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF68FE6A9A4 (64-bit), Flags: CMdRe0, Thread: 0x9C28 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF68FD298DC in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h:7485:
+
+   7483: _mm512_or_si512 (__m512i __A, __m512i __B)
+   7484: {
+=> 7485:   return (__m512i) ((__v16su) __A | (__v16su) __B);
+   7486: }
+   7487: 
+# 2 0x00007FF68FD21340 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: __tmainCRTStartup()
+# 3 0x00007FF68FD21146 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: mainCRTStartup()
+# 4 0x00007FFC8741E8D7 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 5 0x00007FFC88E6C48C in C:\Windows\SYSTEM32\ntdll.dll: RtlUserThreadStart()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  6 2026 18:09:20, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  6 2026 18:09:30
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF68FD298DC в функции calculateFrames() в файле C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h на строке 584. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF68FE6A9A4 (64-bit), Flags: CMdRe0, Thread: 0x9C28 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF68FD298DC in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h:7485:
+
+   7483: _mm512_or_si512 (__m512i __A, __m512i __B)
+   7484: {
+=> 7485:   return (__m512i) ((__v16su) __A | (__v16su) __B);
+   7486: }
+   7487: 
+# 2 0x00007FF68FD21340 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: __tmainCRTStartup()
+# 3 0x00007FF68FD21146 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: mainCRTStartup()
+# 4 0x00007FFC8741E8D7 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 5 0x00007FFC88E6C48C in C:\Windows\SYSTEM32\ntdll.dll: RtlUserThreadStart()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  6 2026 18:09:20, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  6 2026 18:09:30
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF794B198E4 в функции calculateFrames() в файле C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h на строке 584. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF794C5A9A4 (64-bit), Flags: CMdrE0, Thread: 0x88C8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF794B198E4 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h:7485:
+
+   7483: _mm512_or_si512 (__m512i __A, __m512i __B)
+   7484: {
+=> 7485:   return (__m512i) ((__v16su) __A | (__v16su) __B);
+   7486: }
+   7487: 
+# 2 0x00007FF794B11340 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: __tmainCRTStartup()
+# 3 0x00007FF794B11146 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: mainCRTStartup()
+# 4 0x00007FFC8741E8D7 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 5 0x00007FFC88E6C48C in C:\Windows\SYSTEM32\ntdll.dll: RtlUserThreadStart()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  6 2026 18:10:42, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  6 2026 18:10:52
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF794B198E4 в функции calculateFrames() в файле C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h на строке 584. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF794C5A9A4 (64-bit), Flags: CMdrE0, Thread: 0x9BD4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF794B198E4 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h:7485:
+
+   7483: _mm512_or_si512 (__m512i __A, __m512i __B)
+   7484: {
+=> 7485:   return (__m512i) ((__v16su) __A | (__v16su) __B);
+   7486: }
+   7487: 
+# 2 0x00007FF794B11340 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: __tmainCRTStartup()
+# 3 0x00007FF794B11146 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: mainCRTStartup()
+# 4 0x00007FFC8741E8D7 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 5 0x00007FFC88E6C48C in C:\Windows\SYSTEM32\ntdll.dll: RtlUserThreadStart()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  6 2026 18:10:42, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  6 2026 18:11:18
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7D4F198E4 в функции calculateFrames() в файле C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h на строке 584. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7D505A9A4 (64-bit), Flags: CMdrE0, Thread: 0x65CC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7D4F198E4 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h:7485:
+
+   7483: _mm512_or_si512 (__m512i __A, __m512i __B)
+   7484: {
+=> 7485:   return (__m512i) ((__v16su) __A | (__v16su) __B);
+   7486: }
+   7487: 
+# 2 0x00007FF7D4F11340 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: __tmainCRTStartup()
+# 3 0x00007FF7D4F11146 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: mainCRTStartup()
+# 4 0x00007FFC8741E8D7 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 5 0x00007FFC88E6C48C in C:\Windows\SYSTEM32\ntdll.dll: RtlUserThreadStart()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  6 2026 18:11:46, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  6 2026 18:13:18
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7D4F198E4 в функции calculateFrames() в файле C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h на строке 584. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7D505A9A4 (64-bit), Flags: CMdrE0, Thread: 0x8770 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7D4F198E4 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h:7485:
+
+   7483: _mm512_or_si512 (__m512i __A, __m512i __B)
+   7484: {
+=> 7485:   return (__m512i) ((__v16su) __A | (__v16su) __B);
+   7486: }
+   7487: 
+# 2 0x00007FF7D4F11340 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: __tmainCRTStartup()
+# 3 0x00007FF7D4F11146 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: mainCRTStartup()
+# 4 0x00007FFC8741E8D7 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 5 0x00007FFC88E6C48C in C:\Windows\SYSTEM32\ntdll.dll: RtlUserThreadStart()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  6 2026 18:11:46, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  6 2026 18:22:25
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF63B0498E4 в функции calculateFrames() в файле C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h на строке 584. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF63B18A9A4 (64-bit), Flags: CMdrE0, Thread: 0x81E8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF63B0498E4 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h:7485:
+
+   7483: _mm512_or_si512 (__m512i __A, __m512i __B)
+   7484: {
+=> 7485:   return (__m512i) ((__v16su) __A | (__v16su) __B);
+   7486: }
+   7487: 
+# 2 0x00007FF63B041340 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: __tmainCRTStartup()
+# 3 0x00007FF63B041146 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: mainCRTStartup()
+# 4 0x00007FFC8741E8D7 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 5 0x00007FFC88E6C48C in C:\Windows\SYSTEM32\ntdll.dll: RtlUserThreadStart()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  6 2026 18:27:49, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  6 2026 18:27:58
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6425498E4 в функции calculateFrames() в файле C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h на строке 584. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF64268A9A4 (64-bit), Flags: CMdrE0, Thread: 0x5FCC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6425498E4 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h:7485:
+
+   7483: _mm512_or_si512 (__m512i __A, __m512i __B)
+   7484: {
+=> 7485:   return (__m512i) ((__v16su) __A | (__v16su) __B);
+   7486: }
+   7487: 
+# 2 0x00007FF642541340 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: __tmainCRTStartup()
+# 3 0x00007FF642541146 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: mainCRTStartup()
+# 4 0x00007FFC8741E8D7 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 5 0x00007FFC88E6C48C in C:\Windows\SYSTEM32\ntdll.dll: RtlUserThreadStart()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  6 2026 18:28:08, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  6 2026 18:28:17
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6425498E4 в функции calculateFrames() в файле C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h на строке 584. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF64268A9A4 (64-bit), Flags: CMdrE0, Thread: 0x95EC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6425498E4 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h:7485:
+
+   7483: _mm512_or_si512 (__m512i __A, __m512i __B)
+   7484: {
+=> 7485:   return (__m512i) ((__v16su) __A | (__v16su) __B);
+   7486: }
+   7487: 
+# 2 0x00007FF642541340 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: __tmainCRTStartup()
+# 3 0x00007FF642541146 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: mainCRTStartup()
+# 4 0x00007FFC8741E8D7 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 5 0x00007FFC88E6C48C in C:\Windows\SYSTEM32\ntdll.dll: RtlUserThreadStart()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  6 2026 18:28:08, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  6 2026 18:28:29
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6B11098E4 в функции calculateFrames() в файле C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h на строке 584. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6B124A9A4 (64-bit), Flags: CMdrE0, Thread: 0x1CDC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6B11098E4 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h:7485:
+
+   7483: _mm512_or_si512 (__m512i __A, __m512i __B)
+   7484: {
+=> 7485:   return (__m512i) ((__v16su) __A | (__v16su) __B);
+   7486: }
+   7487: 
+# 2 0x00007FF6B1101340 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: __tmainCRTStartup()
+# 3 0x00007FF6B1101146 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: mainCRTStartup()
+# 4 0x00007FFC8741E8D7 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 5 0x00007FFC88E6C48C in C:\Windows\SYSTEM32\ntdll.dll: RtlUserThreadStart()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  6 2026 18:29:10, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  6 2026 18:29:19
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6B11098E4 в функции calculateFrames() в файле C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h на строке 584. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6B124A9A4 (64-bit), Flags: CMdrE0, Thread: 0x98C0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6B11098E4 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h:7485:
+
+   7483: _mm512_or_si512 (__m512i __A, __m512i __B)
+   7484: {
+=> 7485:   return (__m512i) ((__v16su) __A | (__v16su) __B);
+   7486: }
+   7487: 
+# 2 0x00007FF6B1101340 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: __tmainCRTStartup()
+# 3 0x00007FF6B1101146 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: mainCRTStartup()
+# 4 0x00007FFC8741E8D7 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 5 0x00007FFC88E6C48C in C:\Windows\SYSTEM32\ntdll.dll: RtlUserThreadStart()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  6 2026 18:29:10, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  6 2026 18:29:25
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6B11098E4 в функции calculateFrames() в файле C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h на строке 584. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6B124A9A4 (64-bit), Flags: CMdrE0, Thread: 0x7A2C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6B11098E4 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h:7485:
+
+   7483: _mm512_or_si512 (__m512i __A, __m512i __B)
+   7484: {
+=> 7485:   return (__m512i) ((__v16su) __A | (__v16su) __B);
+   7486: }
+   7487: 
+# 2 0x00007FF6B1101340 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: __tmainCRTStartup()
+# 3 0x00007FF6B1101146 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: mainCRTStartup()
+# 4 0x00007FFC8741E8D7 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 5 0x00007FFC88E6C48C in C:\Windows\SYSTEM32\ntdll.dll: RtlUserThreadStart()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  6 2026 18:29:10, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  6 2026 18:29:32
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7877398E4 в функции calculateFrames() в файле C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h на строке 584. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF78787A9A4 (64-bit), Flags: CMdrE0, Thread: 0x8C68 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7877398E4 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h:7485:
+
+   7483: _mm512_or_si512 (__m512i __A, __m512i __B)
+   7484: {
+=> 7485:   return (__m512i) ((__v16su) __A | (__v16su) __B);
+   7486: }
+   7487: 
+# 2 0x00007FF787731340 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: __tmainCRTStartup()
+# 3 0x00007FF787731146 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: mainCRTStartup()
+# 4 0x00007FFC8741E8D7 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 5 0x00007FFC88E6C48C in C:\Windows\SYSTEM32\ntdll.dll: RtlUserThreadStart()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  6 2026 18:32:22, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  6 2026 18:32:32
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
