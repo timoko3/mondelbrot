@@ -55,6 +55,11 @@ void debugPrintMask16(__mmask16 mask, const char* name);
 int main(void){
     // txCreateWindow (WIDTH_WINDOW, HEIGHT_WINDOW);
 
+    SetProcessAffinityMask(GetCurrentProcess(), 1 << 2);
+    SetThreadAffinityMask (GetCurrentThread(),  1 << 2);
+    SetPriorityClass(GetCurrentProcess(), HIGH_PRIORITY_CLASS);
+    SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_HIGHEST);
+
     perf_time_t* perfromTimes = (perf_time_t*) calloc(AMOUNT_MEASURES, sizeof(perf_time_t));  
     assert(perfromTimes);
 
