@@ -81,7 +81,7 @@ int main(int argc, char* argv[]){
         txCreateWindow (WIDTH_WINDOW, HEIGHT_WINDOW);
     }
 
-    fprintf(stderr, "Start\n");
+    // fprintf(stderr, "Start\n");
 
     SetProcessAffinityMask(GetCurrentProcess(), 1 << 2);
     SetThreadAffinityMask (GetCurrentThread(),  1 << 2);
@@ -105,7 +105,7 @@ int main(int argc, char* argv[]){
     free(perfromTimes);
     free(infelicities);
 
-    fprintf(stderr, "End\n");
+    // fprintf(stderr, "End\n");
 
     return 0;
 }
