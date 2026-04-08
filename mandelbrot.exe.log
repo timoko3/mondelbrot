@@ -4933,3 +4933,2917 @@ Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
 Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF780C59A74 в функции calculateFrames() в файле C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h на строке 584. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF780CAD9A4 (64-bit), Flags: CMdrE0, Thread: 0x9A44 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF780C59A74 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/Strawberry/c/lib/gcc/x86_64-w64-mingw32/13.2.0/include/avx512fintrin.h:7485:
+
+   7483: _mm512_or_si512 (__m512i __A, __m512i __B)
+   7484: {
+=> 7485:   return (__m512i) ((__v16su) __A | (__v16su) __B);
+   7486: }
+   7487: 
+
+# 1 0x00007FF780C68502 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:96:
+
+     94: 
+     95:     if(graphicsFlag){
+=>   96:         txCreateWindow (WIDTH_WINDOW, HEIGHT_WINDOW);
+     97:     }
+     98: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 16:37:45, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:16:40
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF75EAF7B7B в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF75EB3D9A4 (64-bit), Flags: CMdrE0, Thread: 0xA104 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF75EAF7B7B in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 1 0x00007FF75EAE9724 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:139:
+
+    137: 
+    138:     while(curFrame < nFrames){
+=>  139:         countMandelbrot(&moveY, &moveX, &scaleShift, graphicsFlag);
+    140:         // basicVersionCalculations();
+    141: 
+
+# 2 0x00007FF75EAF8692 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:111:
+
+    109: 
+    110:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  111:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    112:     }
+    113: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:23:28, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:23:38
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7D6907B8B в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7D694D9A4 (64-bit), Flags: CMdrE0, Thread: 0x905C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7D6907B8B in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 1 0x00007FF7D68F9724 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:141:
+
+    139: 
+    140:     while(curFrame < nFrames){
+=>  141:         countMandelbrot(&moveY, &moveX, &scaleShift, graphicsFlag);
+    142:         // basicVersionCalculations();
+    143: 
+
+# 2 0x00007FF7D6908712 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:25:59, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:26:08
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF706857C4F в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF70689D9A4 (64-bit), Flags: CMdrE0, Thread: 0xAD50 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF706857C4F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF7068587E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:27:14, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:27:25
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF724D27C1F в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF724D6D9A4 (64-bit), Flags: CMdRe0, Thread: 0x819C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF724D27C1F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF724D28822 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:30:39, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:30:50
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF724D27C1F в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF724D6D9A4 (64-bit), Flags: CMdRe0, Thread: 0x819C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF724D27C1F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF724D28822 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:30:39, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:30:50
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF724D27C1F в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF724D6D9A4 (64-bit), Flags: CMdRe0, Thread: 0xAF10 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF724D27C1F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF724D28822 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:30:39, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:31:00
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF724D27C1F в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF724D6D9A4 (64-bit), Flags: CMdRe0, Thread: 0xAF10 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF724D27C1F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF724D28822 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:30:39, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:31:00
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6314E7C1F в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF63152D9A4 (64-bit), Flags: CMdRe0, Thread: 0x3630 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6314E7C1F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF6314E8822 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:33:16, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:33:27
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6314E7C1F в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF63152D9A4 (64-bit), Flags: CMdRe0, Thread: 0x3630 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6314E7C1F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF6314E8822 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:33:16, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:33:27
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6314E7C1F в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF63152D9A4 (64-bit), Flags: CMdRe0, Thread: 0x3824 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6314E7C1F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF6314E8822 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:33:16, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:37:54
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6314E7C1F в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF63152D9A4 (64-bit), Flags: CMdRe0, Thread: 0x3824 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6314E7C1F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF6314E8822 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:33:16, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:37:54
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF650F07C0F в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF650F4D9A4 (64-bit), Flags: CMdRe0, Thread: 0x182C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF650F07C0F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF650F087F2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:38:22, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:38:33
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF650F07C0F в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF650F4D9A4 (64-bit), Flags: CMdRe0, Thread: 0x182C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF650F07C0F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF650F087F2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:38:22, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:38:33
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF68F5B7BE7 в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF68F5FD9A4 (64-bit), Flags: CMdRe0, Thread: 0x69AC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF68F5B7BE7 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF68F5B87E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:39:35, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:39:44
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF68F5B7BE7 в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF68F5FD9A4 (64-bit), Flags: CMdRe0, Thread: 0x69AC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF68F5B7BE7 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF68F5B87E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:39:35, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:39:44
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF61C197BE7 в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF61C1DD9A4 (64-bit), Flags: CMdRe0, Thread: 0x6760 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF61C197BE7 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF61C1987E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:39:59, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:40:09
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF61C197BE7 в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF61C1DD9A4 (64-bit), Flags: CMdRe0, Thread: 0x6760 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF61C197BE7 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF61C1987E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:39:59, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:40:09
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6100A7BFF в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6100ED9A4 (64-bit), Flags: CMdRe0, Thread: 0x970C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6100A7BFF in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF6100A87E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:41:16, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:41:26
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6100A7BFF в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6100ED9A4 (64-bit), Flags: CMdRe0, Thread: 0x970C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6100A7BFF in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF6100A87E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:41:16, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:41:26
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF75F0A7C67 в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF75F0ED9A4 (64-bit), Flags: CMdrE0, Thread: 0x97E0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF75F0A7C67 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF75F0A87E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:44:52, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:45:01
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF700F97C1F в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF700FDD9A4 (64-bit), Flags: CMdRe0, Thread: 0x6634 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF700F97C1F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF700F98822 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:45:35, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:45:48
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF700F97C1F в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF700FDD9A4 (64-bit), Flags: CMdRe0, Thread: 0x6634 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF700F97C1F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF700F98822 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:45:35, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:45:48
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF700F97C1F в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF700FDD9A4 (64-bit), Flags: CMdRe0, Thread: 0x776C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF700F97C1F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF700F98822 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:45:35, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:45:56
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF700F97C1F в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF700FDD9A4 (64-bit), Flags: CMdRe0, Thread: 0x776C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF700F97C1F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF700F98822 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:45:35, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:45:56
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF700F97C1F в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF700FDD9A4 (64-bit), Flags: CMdRe0, Thread: 0x9300 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF700F97C1F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF700F98822 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:45:35, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:45:59
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF700F97C1F в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF700FDD9A4 (64-bit), Flags: CMdRe0, Thread: 0x9300 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF700F97C1F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF700F98822 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:45:35, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:45:59
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7E4097C1F в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7E40DD9A4 (64-bit), Flags: CMdRe0, Thread: 0x9408 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7E4097C1F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF7E4098822 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:46:16, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:46:26
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7E4097C1F в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7E40DD9A4 (64-bit), Flags: CMdRe0, Thread: 0x9408 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7E4097C1F in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF7E4098822 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:46:16, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:46:26
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF65C967BFF в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF65C9AD9A4 (64-bit), Flags: CMdRe0, Thread: 0x7CFC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF65C967BFF in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF65C9687E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:46:39, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:46:49
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF65C967BFF в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF65C9AD9A4 (64-bit), Flags: CMdRe0, Thread: 0x7CFC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF65C967BFF in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF65C9687E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:46:39, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:46:49
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6F1877BFF в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6F18BD9A4 (64-bit), Flags: CMdRe0, Thread: 0x54EC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6F1877BFF in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF6F18787E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:51:04, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:51:13
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6F1877BFF в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6F18BD9A4 (64-bit), Flags: CMdRe0, Thread: 0x54EC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6F1877BFF in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF6F18787E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:51:04, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:51:13
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6DF817C67 в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6DF85D9A4 (64-bit), Flags: CMdrE0, Thread: 0xA110 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6DF817C67 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF6DF8187E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:51:34, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:51:43
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6CEFD7BFF в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6CF01D9A4 (64-bit), Flags: CMdRe0, Thread: 0xAD1C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6CEFD7BFF in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+# 2 0x00007FF6CEFC1340 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: __tmainCRTStartup()
+# 3 0x00007FF6CEFC1146 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: mainCRTStartup()
+# 4 0x00007FFC8741E8D7 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 5 0x00007FFC88E6C48C in C:\Windows\SYSTEM32\ntdll.dll: RtlUserThreadStart()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:53:33, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:53:43
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6CEFD7BFF в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6CF01D9A4 (64-bit), Flags: CMdRe0, Thread: 0xAD1C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6CEFD7BFF in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+# 2 0x00007FF6CEFC1340 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: __tmainCRTStartup()
+# 3 0x00007FF6CEFC1146 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: mainCRTStartup()
+# 4 0x00007FFC8741E8D7 in C:\Windows\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 5 0x00007FFC88E6C48C in C:\Windows\SYSTEM32\ntdll.dll: RtlUserThreadStart()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:53:33, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:53:43
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6B8167BFF в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6B81AD9A4 (64-bit), Flags: CMdRe0, Thread: 0x7B10 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6B8167BFF in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF6B81687E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:58:59, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:59:09
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6B8167BFF в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6B81AD9A4 (64-bit), Flags: CMdRe0, Thread: 0x7B10 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6B8167BFF in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF6B81687E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 17:58:59, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 17:59:09
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6CB3F7BFF в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6CB43D9A4 (64-bit), Flags: CMdRe0, Thread: 0x52C0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6CB3F7BFF in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF6CB3F87E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:02:25, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:02:34
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6CB3F7BFF в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6CB43D9A4 (64-bit), Flags: CMdRe0, Thread: 0x52C0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6CB3F7BFF in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF6CB3F87E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:02:25, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:02:34
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6E0907BFF в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6E094D9A4 (64-bit), Flags: CMdRe0, Thread: 0xA304 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6E0907BFF in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF6E09087E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:02:45, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:02:54
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6E0907BFF в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6E094D9A4 (64-bit), Flags: CMdRe0, Thread: 0xA304 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6E0907BFF in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF6E09087E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:02:45, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:02:54
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF64A057BFF в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF64A09D9A4 (64-bit), Flags: CMdRe0, Thread: 0x2A14 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF64A057BFF in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF64A0587E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:05:46, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:05:55
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF64A057BFF в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF64A09D9A4 (64-bit), Flags: CMdRe0, Thread: 0x2A14 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF64A057BFF in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF64A0587E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:05:46, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:05:55
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7FBE07C12 в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7FBE4D9A4 (64-bit), Flags: CMdRe0, Thread: 0x881C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7FBE07C12 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 1 0x00007FF7FBDF976B in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:142:
+
+    140: 
+    141:     while(curFrame < nFrames){
+=>  142:         countMandelbrot(&moveY, &moveX, &scaleShift, &curCMode, graphicsFlag);
+    143:         // basicVersionCalculations();
+    144: 
+
+# 2 0x00007FF7FBE08742 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:06:37, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:06:47
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7FBE07C12 в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7FBE4D9A4 (64-bit), Flags: CMdRe0, Thread: 0x881C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7FBE07C12 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 1 0x00007FF7FBDF976B in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:142:
+
+    140: 
+    141:     while(curFrame < nFrames){
+=>  142:         countMandelbrot(&moveY, &moveX, &scaleShift, &curCMode, graphicsFlag);
+    143:         // basicVersionCalculations();
+    144: 
+
+# 2 0x00007FF7FBE08742 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:06:37, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:06:47
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6D28B7BE7 в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6D28FD9A4 (64-bit), Flags: CMdRe0, Thread: 0x73A8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6D28B7BE7 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF6D28B87E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:07:17, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:07:27
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6D28B7BE7 в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка прочесть данные по адресу 0xFFFFFFFFFFFFFFFF в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6D28FD9A4 (64-bit), Flags: CMdRe0, Thread: 0x73A8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6D28B7BE7 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 2 0x00007FF6D28B87E2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:07:17, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:07:27
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF67A207B6B в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF67A24D9A4 (64-bit), Flags: CMdrE0, Thread: 0x9260 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF67A207B6B in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 1 0x00007FF67A1F9724 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:141:
+
+    139: 
+    140:     while(curFrame < nFrames){
+=>  141:         countMandelbrot(&moveY, &moveX, &scaleShift, graphicsFlag);
+    142:         // basicVersionCalculations();
+    143: 
+
+# 2 0x00007FF67A2086F2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:08:48, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:08:58
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF6AAE57B6B в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF6AAE9D9A4 (64-bit), Flags: CMdrE0, Thread: 0xA998 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF6AAE57B6B in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 1 0x00007FF6AAE49724 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:141:
+
+    139: 
+    140:     while(curFrame < nFrames){
+=>  141:         countMandelbrot(&moveY, &moveX, &scaleShift, graphicsFlag);
+    142:         // basicVersionCalculations();
+    143: 
+
+# 2 0x00007FF6AAE586F2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:09:16, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:09:32
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7F24A7B6B в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7F24ED9A4 (64-bit), Flags: CMdrE0, Thread: 0xA038 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7F24A7B6B in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 1 0x00007FF7F2499724 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:141:
+
+    139: 
+    140:     while(curFrame < nFrames){
+=>  141:         countMandelbrot(&moveY, &moveX, &scaleShift, graphicsFlag);
+    142:         // basicVersionCalculations();
+    143: 
+
+# 2 0x00007FF7F24A86F2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:10:32, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:10:42
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF69FE27B6B в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF69FE6D9A4 (64-bit), Flags: CMdrE0, Thread: 0x82B0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF69FE27B6B in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 1 0x00007FF69FE19724 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:141:
+
+    139: 
+    140:     while(curFrame < nFrames){
+=>  141:         countMandelbrot(&moveY, &moveX, &scaleShift, graphicsFlag);
+    142:         // basicVersionCalculations();
+    143: 
+
+# 2 0x00007FF69FE286F2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:14:02, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:14:11
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7E0FA7B6B в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7E0FED9A4 (64-bit), Flags: CMdrE0, Thread: 0xA830 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7E0FA7B6B in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 1 0x00007FF7E0F99724 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:141:
+
+    139: 
+    140:     while(curFrame < nFrames){
+=>  141:         countMandelbrot(&moveY, &moveX, &scaleShift, graphicsFlag);
+    142:         // basicVersionCalculations();
+    143: 
+
+# 2 0x00007FF7E0FA86F2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:19:49, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:19:58
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7E0FA7B6B в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7E0FED9A4 (64-bit), Flags: CMdrE0, Thread: 0xAEE0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7E0FA7B6B in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 1 0x00007FF7E0F99724 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:141:
+
+    139: 
+    140:     while(curFrame < nFrames){
+=>  141:         countMandelbrot(&moveY, &moveX, &scaleShift, graphicsFlag);
+    142:         // basicVersionCalculations();
+    143: 
+
+# 2 0x00007FF7E0FA86F2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:19:49, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:22:43
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF67A197B6B в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF67A1DD9A4 (64-bit), Flags: CMdrE0, Thread: 0xA7E0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF67A197B6B in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 1 0x00007FF67A189724 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:141:
+
+    139: 
+    140:     while(curFrame < nFrames){
+=>  141:         countMandelbrot(&moveY, &moveX, &scaleShift, graphicsFlag);
+    142:         // basicVersionCalculations();
+    143: 
+
+# 2 0x00007FF67A1986F2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:23:05, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:23:15
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF769267BCB в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7692AD9A4 (64-bit), Flags: CMdrE0, Thread: 0x57B4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF769267BCB in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 1 0x00007FF769259724 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:141:
+
+    139: 
+    140:     while(curFrame < nFrames){
+=>  141:         countMandelbrot(&moveY, &moveX, &scaleShift, graphicsFlag);
+    142:         // basicVersionCalculations();
+    143: 
+
+# 2 0x00007FF7692686F2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:26:44, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:26:53
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF682557B6B в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF68259D9A4 (64-bit), Flags: CMdrE0, Thread: 0x6A10 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF682557B6B in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 1 0x00007FF682549724 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:141:
+
+    139: 
+    140:     while(curFrame < nFrames){
+=>  141:         countMandelbrot(&moveY, &moveX, &scaleShift, graphicsFlag);
+    142:         // basicVersionCalculations();
+    143: 
+
+# 2 0x00007FF6825586F2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:29:19, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:31:28
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF682557B6B в функции countMandelbrot() в файле C:/Users/Lenovo/Downloads/TX/TXLib.h на строке 9313. Попытка записать данные по адресу 0x00000000001D3F80 в модуле C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF68259D9A4 (64-bit), Flags: CMdrE0, Thread: 0x34C4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF682557B6B in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 1 0x00007FF682549724 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:141:
+
+    139: 
+    140:     while(curFrame < nFrames){
+=>  141:         countMandelbrot(&moveY, &moveX, &scaleShift, graphicsFlag);
+    142:         // basicVersionCalculations();
+    143: 
+
+# 2 0x00007FF6825586F2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:113:
+
+    111: 
+    112:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  113:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    114:     }
+    115: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 18:29:19, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 18:31:37
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
