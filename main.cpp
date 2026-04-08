@@ -33,7 +33,7 @@ typedef double perf_time_t;
 
 const size_t AMOUNT_MEASURES      = 1;
 
-typedef void (*colModeHandler_t) (__m512i*, __m512i*, __m512i*, __m512i);
+typedef void (*colModeHandler_t) (__m512i*, __m512i*, __m512i*, __m512i*);
 
 perf_time_t calculateFrames(int nFrames, bool graphicsFlag);
 void inline countMandelbrot(float* moveY, float* moveX, float* scaleShift, colModeHandler_t* curCMode, bool graphicsFlag);
@@ -60,13 +60,13 @@ void debugPrintMask16(__mmask16 mask, const char* name);
 
 
 
-inline void colModeS(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
-inline void colModeT(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
-inline void colModeR(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
-inline void colModeG(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
-inline void colModeB(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
-inline void colModeP(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
-inline void colModeY(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
+inline void colModeS(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i* exitIndexes);
+// inline void colModeT(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
+// inline void colModeR(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
+// inline void colModeG(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
+// inline void colModeB(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
+// inline void colModeP(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
+// inline void colModeY(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
 
 struct colorMode{
     int              buttonCode;
@@ -74,13 +74,13 @@ struct colorMode{
 };
 
 colorMode colorModes[]{
-    {0x42, colModeB},
-    {0x47, colModeG},
-    {0x52, colModeR},
+    // {0x42, colModeB},
+    // {0x47, colModeG},
+    // {0x52, colModeR},
     {0x53, colModeS},
-    {0x54, colModeT},
-    {0x50, colModeP},
-    {0x59, colModeY}
+    // {0x54, colModeT},
+    // {0x50, colModeP},
+    // {0x59, colModeY}
 };
 
 int main(int argc, char* argv[]){
@@ -209,10 +209,8 @@ void inline countMandelbrot(float* moveY, float* moveX, float* scaleShift, colMo
         }
     }
 
-    
     if(graphicsFlag) videoMemBuffer = txVideoMemory();
     
-
     if(graphicsFlag) txLock();
     for(int counterY = 0; counterY < (int) HEIGHT_WINDOW; counterY++){
         curYPosScaled = ((float) counterY - centerWindowY) / curScale + *moveY;
@@ -230,7 +228,7 @@ void inline countMandelbrot(float* moveY, float* moveX, float* scaleShift, colMo
 
             __m512i exitIndexes = _mm512_set1_epi32(0);
 
-            if(WIDTH_WINDOW - counterX > UNWRAP_NUMBER){
+            if(WIDTH_WINDOW - counterX >= UNWRAP_NUMBER){
                 countDotsVectorMb(&curComplexRe, &curComplexIm, curShiftRe, curComplexIm, &exitIndexes);
                 
                 if(graphicsFlag) drawMb(exitIndexes, videoMemBuffer, counterX, counterY, *curCMode);
@@ -294,75 +292,94 @@ inline void countDotsVectorMb(__m512*  curComplexRe, __m512* curComplexIm,
 }
 
 inline void drawMb(__m512i exitIndexes, RGBQUAD* videoMemBuffer, int counterX, int counterY, colModeHandler_t curCMode){
-    __m512i vPixel = convertDataForDraw(exitIndexes, curCMode);
-    saveDataForDraw(vPixel, videoMemBuffer, counterX, counterY);
+    assert(curCMode);
+
+    volatile __m512i vPixel = convertDataForDraw(exitIndexes, curCMode);
+    // saveDataForDraw(vPixel, videoMemBuffer, counterX, counterY);
 }
 
 inline __m512i convertDataForDraw(__m512i exitIndexes, colModeHandler_t curCMode){
+    assert(curCMode);
+
     __m512i v_red   = _mm512_setzero_si512(); 
     __m512i v_green = _mm512_setzero_si512(); 
     __m512i v_blue  = _mm512_setzero_si512();
+    __m512i v_alpha = _mm512_setzero_si512();
 
-    curCMode(&v_red, &v_green, &v_blue, exitIndexes);
+    lprintf("before\n");
+    debugPrintV512i(v_red,       "red");
+    debugPrintV512i(v_green,     "green");
+    debugPrintV512i(v_blue,      "blue");
+    debugPrintV512i(exitIndexes, "exitIndexes");
 
-    __m512i v_pixel = _mm512_or_si512(_mm512_slli_epi32(v_red, 16), _mm512_or_si512(_mm512_slli_epi32(v_green, 8), v_blue));
+    curCMode(&v_red, &v_green, &v_blue, &exitIndexes);
+
+    lprintf("after\n");
+    debugPrintV512i(v_red,       "red");
+    debugPrintV512i(v_green,     "green");
+    debugPrintV512i(v_blue,      "blue");
+    debugPrintV512i(exitIndexes, "exitIndexes");
+
+    __m512i v_pixel = _mm512_or_si512(_mm512_slli_epi32(v_alpha, 24), _mm512_or_si512(_mm512_slli_epi32(v_red, 16), _mm512_or_si512(_mm512_slli_epi32(v_green, 8), v_blue)));
 
     return v_pixel;
 }
 
-inline void colModeS(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes){
-    *v_red   = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(5)),  _mm512_set1_epi32(255));
-    *v_green = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(9)),  _mm512_set1_epi32(255));
-    *v_blue  = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(13)), _mm512_set1_epi32(255));
+inline void colModeS(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i* exitIndexes){
+    *v_red   = _mm512_and_epi32(_mm512_mullo_epi32(*exitIndexes, _mm512_set1_epi32(5)),  _mm512_set1_epi32(255));
+    *v_green = _mm512_and_epi32(_mm512_mullo_epi32(*exitIndexes, _mm512_set1_epi32(9)),  _mm512_set1_epi32(255));
+    *v_blue  = _mm512_and_epi32(_mm512_mullo_epi32(*exitIndexes, _mm512_set1_epi32(13)), _mm512_set1_epi32(255));
 }
 
-inline void colModeT(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes){
-    *v_red   = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(17)),  _mm512_set1_epi32(255));
-    *v_green = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(23)),  _mm512_set1_epi32(255));
-    *v_blue  = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(5)), _mm512_set1_epi32(255));
-}   
+// inline void colModeT(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes){
+//     *v_red   = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(17)),  _mm512_set1_epi32(255));
+//     *v_green = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(23)),  _mm512_set1_epi32(255));
+//     *v_blue  = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(5)), _mm512_set1_epi32(255));
+// }   
 
-inline void colModeR(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes){
-    *v_red   = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
-    *v_green = _mm512_setzero_si512();
-    *v_blue  = _mm512_setzero_si512();
-}   
+// inline void colModeR(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes){
+//     *v_red   = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
+//     *v_green = _mm512_setzero_si512();
+//     *v_blue  = _mm512_setzero_si512();
+// }   
 
-inline void colModeG(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes){
-    *v_red   = _mm512_setzero_si512();
-    *v_green = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
-    *v_blue  = _mm512_setzero_si512();
-}   
+// inline void colModeG(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes){
+//     *v_red   = _mm512_setzero_si512();
+//     *v_green = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
+//     *v_blue  = _mm512_setzero_si512();
+// }   
 
-inline void colModeB(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes){
-    *v_red   = _mm512_setzero_si512();
-    *v_green = _mm512_setzero_si512();
-    *v_blue  = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
-}
+// inline void colModeB(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes){
+//     *v_red   = _mm512_setzero_si512();
+//     *v_green = _mm512_setzero_si512();
+//     *v_blue  = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
+// }
 
-inline void colModeP(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes){
-    *v_red   = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
-    *v_green = _mm512_setzero_si512();
-    *v_blue  = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
-}   
+// inline void colModeP(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes){
+//     *v_red   = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
+//     *v_green = _mm512_setzero_si512();
+//     *v_blue  = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
+// }   
 
-inline void colModeY(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes){
-    *v_red   = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
-    *v_green = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
-    *v_blue  = _mm512_setzero_si512();
-}   
+// inline void colModeY(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes){
+//     *v_red   = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
+//     *v_green = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
+//     *v_blue  = _mm512_setzero_si512();
+// }   
 
 inline void saveDataForDraw(__m512i vPixel, RGBQUAD* videoMemBuffer,
                             int counterX, int counterY){
+
+    int row = HEIGHT_WINDOW - 1 - counterY;
+    int index = counterX + row * WIDTH_WINDOW;
+
     assert(videoMemBuffer);
-    assert(counterX % 16 == 0);
+    assert(counterX >= 0);
     assert(counterX + 15 < WIDTH_WINDOW);
-    assert(counterY >= 0 && counterY < HEIGHT_WINDOW);                                
+    assert(counterY >= 0 && counterY < HEIGHT_WINDOW);
+    assert(index + 15 < WIDTH_WINDOW * HEIGHT_WINDOW);
 
-
-    void* destAddr = &videoMemBuffer[counterX + (-(counterY) + HEIGHT_WINDOW - 1) * WIDTH_WINDOW];
-
-    _mm512_storeu_si512((__m512i*)destAddr, vPixel);
+    _mm512_storeu_si512((__m512i*)&videoMemBuffer[index], vPixel);
 }
 
 void showFps(float fps){
