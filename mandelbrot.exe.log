@@ -13386,3 +13386,123 @@ Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
 Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF75EBFD9A4 (64-bit), Flags: CMdRE0, Thread: 0x44E8 (Main), GetLastError(): 183 (Невозможно создать файл, так как он уже существует). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF75EBABE27 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: (anonymous namespace)::TX::_txError()
+# 1 0x00007FF75EBABF16 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: (anonymous namespace)::TX::_txOnSignal()
+# 2 0x00007FFC858B1989 in C:\Windows\System32\ucrtbase.dll: raise()
+# 3 0x00007FFC85894AB1 in C:\Windows\System32\ucrtbase.dll: abort()
+
+# 4 0x00007FF75EBB7E17 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 5 0x00007FF75EBA9710 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:159:
+
+    157: 
+    158:     while(curFrame < nFrames){
+=>  159:         countMandelbrot(&moveY, &moveX, &scaleShift, &curCMode, graphicsFlag);
+    160:         // basicVersionCalculations();
+    161: 
+
+# 6 0x00007FF75EBB8AC2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:130:
+
+    128: 
+    129:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  130:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    131:     }
+    132: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 21:26:37, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 22:48:30
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF75EBFD9A4 (64-bit), Flags: CMdRE0, Thread: 0x3630 (Main), GetLastError(): 183 (Невозможно создать файл, так как он уже существует). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF75EBABE27 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: (anonymous namespace)::TX::_txError()
+# 1 0x00007FF75EBABF16 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: (anonymous namespace)::TX::_txOnSignal()
+# 2 0x00007FFC858B1989 in C:\Windows\System32\ucrtbase.dll: raise()
+# 3 0x00007FFC85894AB1 in C:\Windows\System32\ucrtbase.dll: abort()
+
+# 4 0x00007FF75EBB7E17 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: countMandelbrot() at C:/Users/Lenovo/Downloads/TX/TXLib.h:9313:
+
+   9311:         }
+   9312: 
+=> 9313:     if (istty0) {$ while (!wine && _kbhit()) ch = _getch(); }
+   9314: 
+   9315: $   _txSetWindowText (wnd, NULL);
+
+# 5 0x00007FF75EBA9710 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: calculateFrames() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:159:
+
+    157: 
+    158:     while(curFrame < nFrames){
+=>  159:         countMandelbrot(&moveY, &moveX, &scaleShift, &curCMode, graphicsFlag);
+    160:         // basicVersionCalculations();
+    161: 
+
+# 6 0x00007FF75EBB8AC2 in C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe: main() at C:/MIPT/proga/sem2/projects/mondelbrot/main.cpp:130:
+
+    128: 
+    129:     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
+=>  130:         perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
+    131:     }
+    132: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Lenovo\Downloads\TX/TXLib.h
+Compiled:	Apr  8 2026 21:26:37, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Release
+Started:	Apr  8 2026 23:55:33
+
+Run file:	C:\MIPT\proga\sem2\projects\mondelbrot\mandelbrot.exe
+Directory:	C:\MIPT\proga\sem2\projects\mondelbrot
+
+--------------------------------------------------
