@@ -44,7 +44,7 @@ inline void drawMb(__m512i exitIndexes, RGBQUAD* videoMemBuffer,
                   int counterX, int counterY, colModeHandler_t curCMode);
 
 inline __m512i convertDataForDraw(__m512i exitIndexes, colModeHandler_t curCMode);
-inline void    saveDataForDraw(__m512i vPixel, RGBQUAD* videoMemBuffer,
+inline void    saveDataForDraw(__m512i* vPixel, RGBQUAD* videoMemBuffer,
                                int counterX, int counterY);
 
 inline void showFps(float fps);
@@ -294,8 +294,10 @@ inline void countDotsVectorMb(__m512*  curComplexRe, __m512* curComplexIm,
 inline void drawMb(__m512i exitIndexes, RGBQUAD* videoMemBuffer, int counterX, int counterY, colModeHandler_t curCMode){
     assert(curCMode);
 
-    volatile __m512i vPixel = convertDataForDraw(exitIndexes, curCMode);
-    // saveDataForDraw(vPixel, videoMemBuffer, counterX, counterY);
+    __m512i vPixel = convertDataForDraw(exitIndexes, curCMode);
+
+
+    saveDataForDraw(&vPixel, videoMemBuffer, counterX, counterY);
 }
 
 inline __m512i convertDataForDraw(__m512i exitIndexes, colModeHandler_t curCMode){
@@ -306,19 +308,19 @@ inline __m512i convertDataForDraw(__m512i exitIndexes, colModeHandler_t curCMode
     __m512i v_blue  = _mm512_setzero_si512();
     __m512i v_alpha = _mm512_setzero_si512();
 
-    lprintf("before\n");
-    debugPrintV512i(v_red,       "red");
-    debugPrintV512i(v_green,     "green");
-    debugPrintV512i(v_blue,      "blue");
-    debugPrintV512i(exitIndexes, "exitIndexes");
+    // lprintf("before\n");
+    // debugPrintV512i(v_red,       "red");
+    // debugPrintV512i(v_green,     "green");
+    // debugPrintV512i(v_blue,      "blue");
+    // debugPrintV512i(exitIndexes, "exitIndexes");
 
     curCMode(&v_red, &v_green, &v_blue, &exitIndexes);
 
-    lprintf("after\n");
-    debugPrintV512i(v_red,       "red");
-    debugPrintV512i(v_green,     "green");
-    debugPrintV512i(v_blue,      "blue");
-    debugPrintV512i(exitIndexes, "exitIndexes");
+    // lprintf("after\n");
+    // debugPrintV512i(v_red,       "red");
+    // debugPrintV512i(v_green,     "green");
+    // debugPrintV512i(v_blue,      "blue");
+    // debugPrintV512i(exitIndexes, "exitIndexes");
 
     __m512i v_pixel = _mm512_or_si512(_mm512_slli_epi32(v_alpha, 24), _mm512_or_si512(_mm512_slli_epi32(v_red, 16), _mm512_or_si512(_mm512_slli_epi32(v_green, 8), v_blue)));
 
@@ -367,19 +369,20 @@ inline void colModeS(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i*
 //     *v_blue  = _mm512_setzero_si512();
 // }   
 
-inline void saveDataForDraw(__m512i vPixel, RGBQUAD* videoMemBuffer,
+inline void saveDataForDraw(__m512i* vPixel, RGBQUAD* videoMemBuffer,
                             int counterX, int counterY){
 
     int row = HEIGHT_WINDOW - 1 - counterY;
     int index = counterX + row * WIDTH_WINDOW;
-
+    
+    assert(vPixel);
     assert(videoMemBuffer);
     assert(counterX >= 0);
     assert(counterX + 15 < WIDTH_WINDOW);
     assert(counterY >= 0 && counterY < HEIGHT_WINDOW);
     assert(index + 15 < WIDTH_WINDOW * HEIGHT_WINDOW);
 
-    _mm512_storeu_si512((__m512i*)&videoMemBuffer[index], vPixel);
+    _mm512_storeu_si512((__m512i*)&videoMemBuffer[index], *vPixel);
 }
 
 void showFps(float fps){
