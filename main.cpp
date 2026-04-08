@@ -21,8 +21,8 @@ const size_t HEIGHT_WINDOW        = 600;
 
 const float  SCALE_NUM            = 450.0;
 
-const float  dx                   = 1 / SCALE_NUM;
-const float  dy                   = 1 / SCALE_NUM;
+// float  dx                   = 1 / SCALE_NUM;
+// float  dy                   = 1 / SCALE_NUM;
 
 const float  MAX_COMPLEX_NUM_SIZE = 4.0;
 const size_t AMOUNT_ITERATIONS    = 256;
@@ -55,6 +55,19 @@ inline void basicVersionCalculations();
 void debugPrintV512(__m512 v, const char* name);
 void debugPrintV512i(__m512i v, const char* name);
 void debugPrintMask16(__mmask16 mask, const char* name);
+
+typedef (void*) colModeHandler_t (_m512i*, _m512i*, _m512i*, _m512)
+
+inline void colModeS(_m512i* v_red, _m512i* v_green, _m512i* v_blue, _m512i exitIndexes);
+
+struct colorMode{
+    int              buttonCode;
+    colModeHandler_t handler;
+};
+
+colorMode colorModes[]{
+    {0x53, colModeS}
+};
 
 int main(int argc, char* argv[]){
     bool graphicsFlag = true;
@@ -93,7 +106,7 @@ int main(int argc, char* argv[]){
 
 
     for(size_t curMeasureInd = 0; curMeasureInd < AMOUNT_MEASURES; curMeasureInd++){
-        perfromTimes[curMeasureInd] = calculateFrames(1000, graphicsFlag);
+        perfromTimes[curMeasureInd] = calculateFrames(100000, graphicsFlag);
     }
 
     perf_time_t avg = countAverage(perfromTimes, 2, AMOUNT_MEASURES);
@@ -143,24 +156,47 @@ perf_time_t calculateFrames(int nFrames, bool graphicsFlag = true){
 void inline countMandelbrot(float* moveY, float* moveX, float* scaleShift, bool graphicsFlag){
     float curXPosScaled   = 0;
     float curYPosScaled   = 0;
+    float dx              = 1 / (SCALE_NUM + *scaleShift);
+    float dy              = 1 / (SCALE_NUM + *scaleShift);
 
     RGBQUAD* videoMemBuffer = NULL;
 
-    if(GetAsyncKeyState(VK_UP))    (*moveY)--;
-    if(GetAsyncKeyState(VK_DOWN))  (*moveY)++;
-    if(GetAsyncKeyState(VK_LEFT))  (*moveX)--;
-    if(GetAsyncKeyState(VK_RIGHT)) (*moveX)++;
+    float curScale      = SCALE_NUM + *scaleShift; 
+    float centerWindowY = (HEIGHT_WINDOW / 2.0f);
+    float centerWindowX = (WIDTH_WINDOW / 2.0f);
 
-    if(GetAsyncKeyState(VK_ADD))      (*scaleShift)++;
-    if(GetAsyncKeyState(VK_SUBTRACT)) (*scaleShift)--;
+    float step          = 10.0f / curScale;
+
+    if(GetAsyncKeyState(VK_UP))    (*moveY) -= step;
+    if(GetAsyncKeyState(VK_DOWN))  (*moveY) += step;
+    if(GetAsyncKeyState(VK_LEFT))  (*moveX) -= step;
+    if(GetAsyncKeyState(VK_RIGHT)) (*moveX) += step;
+
+    float zoomSpeed     = 1.05f;
+
+    if(GetAsyncKeyState(VK_ADD)){
+        (*scaleShift) = (*scaleShift + SCALE_NUM) * zoomSpeed - SCALE_NUM;
+        curScale = SCALE_NUM + *scaleShift;
+        dx = 1 / curScale;
+    }   
+    if(GetAsyncKeyState(VK_SUBTRACT)){
+        (*scaleShift) = (*scaleShift + SCALE_NUM) / zoomSpeed - SCALE_NUM;
+        curScale = SCALE_NUM + *scaleShift;
+        dy = 1 / curScale;
+    } 
+
+    for(size_t curCMode = 0; curCMode < sizeof(colorModes) / sizeof(colorMode); curCMode++){
+        if(GetAsyncKeyState(colorModes.))
+    }
+
 
     if(graphicsFlag) videoMemBuffer = txVideoMemory();
 
     if(graphicsFlag) txLock();
     for(int counterY = 0; counterY < (int) HEIGHT_WINDOW; counterY++){
-        curYPosScaled = ((float) counterY - 300.0f + *moveY)  / (SCALE_NUM + *scaleShift);
+        curYPosScaled = ((float) counterY - centerWindowY) / curScale + *moveY;
         for(int counterX = 0; counterX < (int) WIDTH_WINDOW; counterX += UNWRAP_NUMBER){
-            curXPosScaled = ((float) counterX - 1000.0f + *moveX) / (SCALE_NUM + *scaleShift);
+            curXPosScaled = ((float) counterX - centerWindowX) / curScale + *moveX;
 
             __m512 curShiftRe = _mm512_set_ps(curXPosScaled + 15 * dx, curXPosScaled + 14 * dx, curXPosScaled + 13 * dx, curXPosScaled + 12 * dx,
                 curXPosScaled + 11 * dx, curXPosScaled + 10 * dx, curXPosScaled + 9 * dx,  curXPosScaled + 8 * dx,
@@ -242,14 +278,20 @@ inline void drawMb(__m512i exitIndexes, RGBQUAD* videoMemBuffer, int counterX, i
 }
 
 inline __m512i convertDataForDraw(__m512i exitIndexes){
-    __m512i v_red   = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(5)),  _mm512_set1_epi32(255));
-    __m512i v_green = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(9)),  _mm512_set1_epi32(255));
-    __m512i v_blue  = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(13)), _mm512_set1_epi32(255));
+    __m512i v_red   = 0; 
+    __m512i v_green = 0; 
+    __m512i v_blue  = 0;
 
     __m512i v_pixel = _mm512_or_si512(_mm512_slli_epi32(v_red, 16), _mm512_or_si512(_mm512_slli_epi32(v_green, 8), v_blue));
 
     return v_pixel;
 }
+
+inline void colModeS(_m512i* v_red, _m512i* v_green, _m512i* v_blue, _m512i exitIndexes){
+    *v_red   = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(5)),  _mm512_set1_epi32(255));
+    *v_green = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(9)),  _mm512_set1_epi32(255));
+    *v_blue  = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(13)), _mm512_set1_epi32(255));
+}   
 
 inline void saveDataForDraw(__m512i vPixel, RGBQUAD* videoMemBuffer,
                             int counterX, int counterY){
