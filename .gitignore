@@ -4,3 +4,6 @@ mentoring.txt
 *.dmp
 logMb.txt
 *.exe
+mandelbrot.exe
+mandelbrot.exe.log
+mandelbrot.exe.log.dmp
