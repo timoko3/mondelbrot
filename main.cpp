@@ -16,6 +16,13 @@
 #include <immintrin.h>
 #include <windows.h>
 
+#define HARD_FAIL(...) { \
+    printf(__VA_ARGS__); \
+    printf("\n"); \
+    fflush(stdout); \
+    abort(); \
+}
+
 const size_t WIDTH_WINDOW         = 800;
 const size_t HEIGHT_WINDOW        = 600;
 
@@ -209,7 +216,10 @@ void inline countMandelbrot(float* moveY, float* moveX, float* scaleShift, colMo
         }
     }
 
-    if(graphicsFlag) videoMemBuffer = txVideoMemory();
+    if(graphicsFlag){
+        videoMemBuffer = txVideoMemory();
+        if (!videoMemBuffer) abort();
+    }  
     
     if(graphicsFlag) txLock();
     for(int counterY = 0; counterY < (int) HEIGHT_WINDOW; counterY++){
@@ -371,16 +381,33 @@ inline void colModeS(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i*
 
 inline void saveDataForDraw(__m512i* vPixel, RGBQUAD* videoMemBuffer,
                             int counterX, int counterY){
+    // if(!vPixel)          HARD_FAIL("vPixel == null");
+    // if(!videoMemBuffer)  HARD_FAIL("videoMemBuffer == null");
+
+    // if(counterX < 0) HARD_FAIL("counterX < 0: %d", counterX);
+    // if(counterY < 0) HARD_FAIL("counterY < 0: %d", counterY);
+
+    // if(counterY >= HEIGHT_WINDOW)
+    //     HARD_FAIL("counterY overflow: %d >= %d", counterY, HEIGHT_WINDOW);
+
+    // if(counterX + 15 >= WIDTH_WINDOW)
+    //     HARD_FAIL("ROW OVERFLOW: X=%d (WIDTH=%d)", counterX, WIDTH_WINDOW);
 
     int row = HEIGHT_WINDOW - 1 - counterY;
-    int index = counterX + row * WIDTH_WINDOW;
-    
-    assert(vPixel);
-    assert(videoMemBuffer);
-    assert(counterX >= 0);
-    assert(counterX + 15 < WIDTH_WINDOW);
-    assert(counterY >= 0 && counterY < HEIGHT_WINDOW);
-    assert(index + 15 < WIDTH_WINDOW * HEIGHT_WINDOW);
+
+    // if(row < 0 || row >= HEIGHT_WINDOW)
+    //     HARD_FAIL("BAD ROW: %d from Y=%d", row, counterY);
+
+    long long index = (long long)counterX + (long long)row * WIDTH_WINDOW;
+
+    // if(index < 0)
+    //     HARD_FAIL("NEGATIVE INDEX: %lld", index);
+
+    // if(index + 15 >= (long long)WIDTH_WINDOW * HEIGHT_WINDOW)
+    //     HARD_FAIL("BUFFER OVERFLOW: index=%lld", index);
+
+    // if(((uintptr_t)&videoMemBuffer[index]) % 4 != 0)
+    //     HARD_FAIL("UNALIGNED PIXEL POINTER");
 
     _mm512_storeu_si512((__m512i*)&videoMemBuffer[index], *vPixel);
 }
