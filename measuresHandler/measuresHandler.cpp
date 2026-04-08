@@ -16,8 +16,8 @@ double countAverage(double* measures, int accuracy, size_t amountMeasures){
         sum += measures[curMeasurement];
     }
 
-    double avg = sum / amountMeasures;
-    avg = roundTo(avg, 2);
+    double avg = sum / (double) amountMeasures;
+    avg = roundTo(avg, accuracy);
 
     return avg;
 }
@@ -38,7 +38,7 @@ double* countInfelicity(double avg, double* measures, size_t amountMeasures, dou
         sumInfelicities += fabs(avg - measures[curMeasurement]);
     }
 
-    *avgInfelicity = sumInfelicities / amountMeasures;
+    *avgInfelicity = sumInfelicities / (double) amountMeasures;
     
     // for(size_t curInd = 0; curInd < amountMeasures; curInd++){
     //     printf("%lu %.2lf\n", curInd + 1, infelicities[curInd]);
@@ -62,10 +62,10 @@ void createCsvWithResults(double* measures, double* infelicities,
     FILE* csvResPtr = myOpenFile(&CSVresults);
     fprintf(csvResPtr, "testN,value,infelicity\n");
     for(size_t curInd = 0; curInd < amountMeasures; curInd++){
-        fprintf(csvResPtr, "%lu,%.2lf,%.2lf\n", curInd + 1, measures[curInd], infelicities[curInd]);
+        fprintf(csvResPtr, "%llu,%.2lf,%.2lf\n", curInd + 1, measures[curInd], infelicities[curInd]);
     }
 
-    fprintf(csvResPtr, "Average: %lu,%.2lf,%.2lf\n", amountMeasures + 1, avgMeasures, avgInfelicity);
+    fprintf(csvResPtr, "Average: %llu,%.2lf,%.2lf\n", amountMeasures + 1, avgMeasures, avgInfelicity);
 
     fclose(csvResPtr);
 }

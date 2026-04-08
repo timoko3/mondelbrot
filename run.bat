@@ -12,4 +12,4 @@ g++ main.cpp measuresHandler\measuresHandler.cpp general\*.cpp -I "C:\Users\Leno
 -Wtype-limits -Wwrite-strings -Werror=vla ^
 -DNDEBUG -D_EJUDGE_CLIENT_SIDE 
 
-mandelbrot.exe %*
+@REM mandelbrot.exe %*

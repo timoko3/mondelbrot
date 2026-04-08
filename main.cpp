@@ -32,7 +32,7 @@ const float  SCALE_NUM            = 450.0;
 // float  dy                   = 1 / SCALE_NUM;
 
 const float  MAX_COMPLEX_NUM_SIZE = 4.0;
-const size_t AMOUNT_ITERATIONS    = 256;
+const int    AMOUNT_ITERATIONS    = 256;
 
 const size_t UNWRAP_NUMBER        = 16;
 
@@ -160,7 +160,7 @@ perf_time_t calculateFrames(int nFrames, bool graphicsFlag = true){
         // basicVersionCalculations();
 
         if(graphicsFlag){
-            fps = txGetFPS();
+            fps = (float) txGetFPS();
             showFps(fps);
             txRedrawWindow();
         }
@@ -179,7 +179,7 @@ void inline countMandelbrot(float* moveY, float* moveX, float* scaleShift, colMo
     float curXPosScaled   = 0;
     float curYPosScaled   = 0;
     float dx              = 1 / (SCALE_NUM + *scaleShift);
-    float dy              = 1 / (SCALE_NUM + *scaleShift);
+    // float dy              = 1 / (SCALE_NUM + *scaleShift);
 
     lprintf("start count\n");
 
@@ -206,7 +206,7 @@ void inline countMandelbrot(float* moveY, float* moveX, float* scaleShift, colMo
     if(GetAsyncKeyState(VK_SUBTRACT)){
         (*scaleShift) = (*scaleShift + SCALE_NUM) / zoomSpeed - SCALE_NUM;
         curScale = SCALE_NUM + *scaleShift;
-        dy = 1 / curScale;
+        // dy = 1 / curScale;
     } 
 
     for(size_t i = 0; i < sizeof(colorModes) / sizeof(colorMode); i++){
@@ -430,8 +430,8 @@ inline void basicVersionCalculations(){
             double curComplexIm2       = 0;     // overflow if float
             float curComplexImRe       = 0;
 
-            float curShiftRe           = (curX - 1000) / (450.0); 
-            float curShiftIm           = (curY - 300) / (450.0); 
+            float curShiftRe           = ((float) curX - 1000.0f) / (450.0f); 
+            float curShiftIm           = ((float) curY - 300.0f) / (450.0f); 
 
             int curIter = 0;
             while(curComplexRe2 + curComplexIm2 < 4 && curIter < AMOUNT_ITERATIONS){
@@ -439,7 +439,7 @@ inline void basicVersionCalculations(){
                 curComplexIm2        = curComplexIm * curComplexIm;
                 curComplexImRe       = curComplexIm * curComplexRe;
 
-                curComplexRe = (curComplexRe2 - curComplexIm2 + curShiftRe);
+                curComplexRe = ((float) curComplexRe2 - (float) curComplexIm2 + curShiftRe);
                 curComplexIm = 2 * curComplexImRe + curShiftIm;
 
                 curIter++;
