@@ -36,7 +36,7 @@ const size_t AMOUNT_MEASURES      = 1;
 typedef void (*colModeHandler_t) (__m512i*, __m512i*, __m512i*, __m512i);
 
 perf_time_t calculateFrames(int nFrames, bool graphicsFlag);
-void inline countMandelbrot(float* moveY, float* moveX, float* scaleShift, bool graphicsFlag);
+void inline countMandelbrot(float* moveY, float* moveX, float* scaleShift, colModeHandler_t* curCMode, bool graphicsFlag);
 inline void countDotsVectorMb(__m512* curComplexRe, __m512* curComplexIm, 
                               __m512 curShiftRe, __m512 curShiftIm,
                               __m512i* exitIndexes);
@@ -62,6 +62,11 @@ void debugPrintMask16(__mmask16 mask, const char* name);
 
 inline void colModeS(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
 inline void colModeT(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
+inline void colModeR(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
+inline void colModeG(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
+inline void colModeB(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
+inline void colModeP(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
+inline void colModeY(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes);
 
 struct colorMode{
     int              buttonCode;
@@ -69,8 +74,13 @@ struct colorMode{
 };
 
 colorMode colorModes[]{
+    {0x42, colModeB},
+    {0x47, colModeG},
+    {0x52, colModeR},
     {0x53, colModeS},
-    {0x54, colModeT}
+    {0x54, colModeT},
+    {0x50, colModeP},
+    {0x59, colModeY}
 };
 
 int main(int argc, char* argv[]){
@@ -130,15 +140,16 @@ int main(int argc, char* argv[]){
 perf_time_t calculateFrames(int nFrames, bool graphicsFlag = true){
     int64_t startTicks = GetTicks();
 
-    int curFrame     = 0;
-    float fps        = 0;
+    int curFrame              = 0;
+    float fps                 = 0;
 
-    float moveY      = 0;
-    float moveX      = 0;
-    float scaleShift = 0;
+    float moveY               = 0;
+    float moveX               = 0;
+    float scaleShift          = 0;
+    colModeHandler_t curCMode = colModeS;
 
     while(curFrame < nFrames){
-        countMandelbrot(&moveY, &moveX, &scaleShift, graphicsFlag);
+        countMandelbrot(&moveY, &moveX, &scaleShift, &curCMode, graphicsFlag);
         // basicVersionCalculations();
 
         if(graphicsFlag){
@@ -157,7 +168,7 @@ perf_time_t calculateFrames(int nFrames, bool graphicsFlag = true){
     return (double) (endTicks - startTicks) / (double) frequency;
 }
 
-void inline countMandelbrot(float* moveY, float* moveX, float* scaleShift, bool graphicsFlag){
+void inline countMandelbrot(float* moveY, float* moveX, float* scaleShift, colModeHandler_t* curCMode, bool graphicsFlag){
     float curXPosScaled   = 0;
     float curYPosScaled   = 0;
     float dx              = 1 / (SCALE_NUM + *scaleShift);
@@ -191,19 +202,16 @@ void inline countMandelbrot(float* moveY, float* moveX, float* scaleShift, bool 
         dy = 1 / curScale;
     } 
 
-    colModeHandler_t curCMode = colModeS; 
-
-    // for(size_t i = 0; i < sizeof(colorModes) / sizeof(colorMode); i++){
-    //     if(GetAsyncKeyState(colorModes[i].buttonCode)){
-    //         curCMode = colorModes[i].handler;
-    //         break;
-    //     }
-    // }
+    for(size_t i = 0; i < sizeof(colorModes) / sizeof(colorMode); i++){
+        if(GetAsyncKeyState(colorModes[i].buttonCode)){
+            *curCMode = colorModes[i].handler;
+            break;
+        }
+    }
 
     
     if(graphicsFlag) videoMemBuffer = txVideoMemory();
     
-    lprintf("start cycle\n");
 
     if(graphicsFlag) txLock();
     for(int counterY = 0; counterY < (int) HEIGHT_WINDOW; counterY++){
@@ -225,7 +233,7 @@ void inline countMandelbrot(float* moveY, float* moveX, float* scaleShift, bool 
             if(WIDTH_WINDOW - counterX > UNWRAP_NUMBER){
                 countDotsVectorMb(&curComplexRe, &curComplexIm, curShiftRe, curComplexIm, &exitIndexes);
                 
-                if(graphicsFlag) drawMb(exitIndexes, videoMemBuffer, counterX, counterY, curCMode);
+                if(graphicsFlag) drawMb(exitIndexes, videoMemBuffer, counterX, counterY, *curCMode);
 
             }
         }
@@ -314,6 +322,36 @@ inline void colModeT(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i 
     *v_blue  = _mm512_and_epi32(_mm512_mullo_epi32(exitIndexes, _mm512_set1_epi32(5)), _mm512_set1_epi32(255));
 }   
 
+inline void colModeR(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes){
+    *v_red   = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
+    *v_green = _mm512_setzero_si512();
+    *v_blue  = _mm512_setzero_si512();
+}   
+
+inline void colModeG(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes){
+    *v_red   = _mm512_setzero_si512();
+    *v_green = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
+    *v_blue  = _mm512_setzero_si512();
+}   
+
+inline void colModeB(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes){
+    *v_red   = _mm512_setzero_si512();
+    *v_green = _mm512_setzero_si512();
+    *v_blue  = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
+}
+
+inline void colModeP(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes){
+    *v_red   = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
+    *v_green = _mm512_setzero_si512();
+    *v_blue  = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
+}   
+
+inline void colModeY(__m512i* v_red, __m512i* v_green, __m512i* v_blue, __m512i exitIndexes){
+    *v_red   = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
+    *v_green = _mm512_cvtps_epi32(_mm512_sub_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_mul_ps(_mm512_set1_ps(255.0f), _mm512_floor_ps(_mm512_div_ps(_mm512_cvtepi32_ps(exitIndexes), _mm512_set1_ps(255.0f))))));
+    *v_blue  = _mm512_setzero_si512();
+}   
+
 inline void saveDataForDraw(__m512i vPixel, RGBQUAD* videoMemBuffer,
                             int counterX, int counterY){
     assert(videoMemBuffer);
@@ -329,7 +367,7 @@ inline void saveDataForDraw(__m512i vPixel, RGBQUAD* videoMemBuffer,
 
 void showFps(float fps){
 
-    char printStr[64];
+    char printStr[1000];
     sprintf(printStr, "fps: %.2f", fps);
     txSetColor(TX_YELLOW); 
     txTextOut(0, 0, printStr);
